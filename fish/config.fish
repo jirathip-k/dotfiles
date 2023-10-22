@@ -1,5 +1,6 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+if not type -q fisher
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 end
 
-alias z "cd"
+
+alias python=python3
