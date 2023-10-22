@@ -6,6 +6,8 @@ symlink
 ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/kitty ~/.config/kitty
 ln -s ~/dotfiles/fish ~/.config/fish
+ln -s /home/jirathip/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+
 ```
 
 # Neovim config
@@ -19,6 +21,11 @@ This is some note for my terminal config in kitty and fish
 ### Kitty
 
 ...
+
+### TMUX
+
+- [TPM](https://github.com/tmux-plugins/tpm)
+- [Catppuccin](https://github.com/catppuccin/tmux)
 
 ### Fish
 
