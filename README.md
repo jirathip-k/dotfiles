@@ -14,7 +14,7 @@ ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 
 - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
-# Neovim config
+## Neovim config
 
 ...
 
@@ -32,6 +32,8 @@ This is some note for my terminal config in kitty and fish
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ```
+
+Press prefix + I (capital i, as in Install) to fetch the plugin.
 
 - [TPM](https://github.com/tmux-plugins/tpm)
 - [Catppuccin](https://github.com/catppuccin/tmux)
