@@ -6,9 +6,13 @@ symlink
 ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/kitty ~/.config/kitty
 ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/fish/config.fish $~/.config/fish/config.fish
-ln -s ~/dotfiles/fish/fish_plugins $~/.config/fish/fish_plugins
+ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
+ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 ```
+
+## Install Hack Nerd Font
+
+- [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
 # Neovim config
 
@@ -23,6 +27,11 @@ This is some note for my terminal config in kitty and fish
 ...
 
 ### TMUX
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
+```
 
 - [TPM](https://github.com/tmux-plugins/tpm)
 - [Catppuccin](https://github.com/catppuccin/tmux)
