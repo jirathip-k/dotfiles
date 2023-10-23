@@ -42,3 +42,5 @@ if test (uname) = "Linux"
     alias cat=batcat
 end
 
+
+set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"
