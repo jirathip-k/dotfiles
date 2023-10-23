@@ -15,8 +15,7 @@ end
 # Specific settings for macOS
 if test (uname) = "Darwin"
     set -gx PATH /opt/homebrew/bin $PATH
-
- end
+end
 
 # Specific settings for Linux
 if test (uname) = "Linux"
