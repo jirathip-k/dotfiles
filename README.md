@@ -14,6 +14,10 @@ ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 
 - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
+## Markdown Renderer
+
+- [Glow](https://github.com/charmbracelet/glow)
+
 ## Neovim config
 
 ...
