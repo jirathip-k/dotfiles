@@ -16,6 +16,9 @@ return {
 
 			opts.desc = "Show Documentation"
 			vim.keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
+
+			opts.desc = "Restart LSP"
+			vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()

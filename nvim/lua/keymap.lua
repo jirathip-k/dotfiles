@@ -12,6 +12,9 @@ vim.keymap.set("v", "P", '"+P', { noremap = true, silent = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
+-- New Line
+vim.keymap.set("n", "<leader><CR>", "$o<Esc>", { desc = "New Line" })
+
 -- Search and Replace
 vim.keymap.set(
 	"n",
