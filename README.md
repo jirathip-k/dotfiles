@@ -46,4 +46,9 @@ Press prefix + I (capital i, as in Install) to fetch the plugin.
 
 - [Fish shell](https://github.com/fish-shell/fish-shell)
 - [Fish package manager](https://github.com/jorgebucaran/fisher)
+
+```fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
 - [Tide](https://github.com/IlanCosman/tide)

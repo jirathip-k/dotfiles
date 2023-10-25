@@ -11,9 +11,15 @@ if not contains /bin $PATH
     set -gx PATH /bin $PATH
 end
 
-# Common setting for both Linux and macOS
-if not type -q fisher
-    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+# Add Go's path
+set -gx PATH $PATH /usr/local/go/bin
+
+# Add Go's tool path
+set -gx PATH $PATH $HOME/go/bin
+
+# Specific settings for macOS
+if test (uname) = "Darwin"
+    set -gx PATH /opt/homebrew/bin $PATH
 end
 
 set -gx EDITOR "nvim"
@@ -25,16 +31,6 @@ if status is-interactive
     exec tmux
 end
 
-# Add Go's path
-set -gx PATH $PATH /usr/local/go/bin
-
-# Add Go's tool path
-set -gx PATH $PATH $HOME/go/bin
-
-# Specific settings for macOS
-if test (uname) = "Darwin"
-    set -gx PATH /opt/homebrew/bin $PATH
-end
 
 # Specific settings for Linux
 if test (uname) = "Linux"
