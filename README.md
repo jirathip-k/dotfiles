@@ -52,3 +52,21 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 ```
 
 - [Tide](https://github.com/IlanCosman/tide)
+
+
+## Dependencies
+
+Need to update when setting up new env
+
+### MacOS
+
+
+```bash
+brew install fzf bat fd ripgrep
+```
+
+### Linux
+
+```bash
+suo apt install ...
+```
