@@ -17,6 +17,9 @@ set -gx PATH $PATH /usr/local/go/bin
 # Add Go's tool path
 set -gx PATH $PATH $HOME/go/bin
 
+# Add Rust's path
+set -gx PATH $HOME/.cargo/bin $PATH
+
 # Specific settings for macOS
 if test (uname) = "Darwin"
     set -gx PATH /opt/homebrew/bin $PATH
@@ -40,3 +43,11 @@ end
 
 
 set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"
+
+if type -q minikube
+    eval (minikube docker-env)
+end
+
+set -gx DOCKER_BUILDKIT 1
+
+
