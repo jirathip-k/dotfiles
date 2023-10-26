@@ -6,8 +6,11 @@ symlink
 ln -s ~/dotfiles/nvim ~/.config/nvim
 ln -s ~/dotfiles/kitty ~/.config/kitty
 ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+rm -rf ~/.config/fish/config.fish
+rm -rf ~/.config/fish/fish_plugins
 ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
+ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig 
 ```
 
 # Neovim
