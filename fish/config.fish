@@ -26,9 +26,14 @@ if test (uname) = "Darwin"
 end
 
 set -gx EDITOR "nvim"
-alias vim=nvim
 alias python=python3
 
+# For less key stroke
+alias v="nvim ."
+alias vi="nvim ."
+alias vim="nvim ."
+
+# Force TMUX
 if status is-interactive
     and not set -q TMUX
     exec tmux
@@ -41,13 +46,18 @@ if test (uname) = "Linux"
     alias cat=batcat
 end
 
-
+# fzf fish key bind func as terminal cmd
 set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"
+alias f=_fzf_search_directory
+alias r=_fzf_search_history
+alias g=_fzf_search_git_status
 
+# Set up minikube for Docker without Docker Desktop to MacOS
 if type -q minikube
     eval (minikube docker-env)
 end
 
+# Use docker buildx
 set -gx DOCKER_BUILDKIT 1
 
 
