@@ -91,6 +91,13 @@ suo apt install ...
 cargo install exa
 ```
 
+# Programming Languages
+- Rust: 
+- Python: [Poetry](https://python-poetry.org/docs/) as package manager
+- Go
+- TypeScript: [Node]
+
+
 # Docker with minikube
 
 ```bash

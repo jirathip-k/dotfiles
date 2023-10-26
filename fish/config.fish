@@ -20,6 +20,9 @@ set -gx PATH $PATH $HOME/go/bin
 # Add Rust's path
 set -gx PATH $HOME/.cargo/bin $PATH
 
+# Add Python Poetry
+set -gx PATH $HOME/.local/bin $PATH
+
 # Specific settings for macOS
 if test (uname) = "Darwin"
     set -gx PATH /opt/homebrew/bin $PATH
