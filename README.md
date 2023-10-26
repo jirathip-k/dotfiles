@@ -33,12 +33,11 @@ Then clone and make from source [Neovim](https://github.com/neovim/neovim)
 
 # Terminal
 
-
 ## Kitty
 
 ...
 
-# TMUX
+## TMUX
 
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -51,7 +50,6 @@ Press prefix + I (capital i, as in Install) to fetch the plugin.
 - [Catppuccin](https://github.com/catppuccin/tmux)
 
 ## Fish
-
 
 
 - [Fish shell](https://github.com/fish-shell/fish-shell)
@@ -87,8 +85,13 @@ brew install fzf bat fd ripgrep
 suo apt install ...
 ```
 
+## Utilities
 
-## Docker with minikube
+```bash
+cargo install exa
+```
+
+# Docker with minikube
 
 ```bash
 minikube start --driver qemu --network socket_vmnet

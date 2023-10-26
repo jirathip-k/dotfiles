@@ -52,6 +52,8 @@ alias f=_fzf_search_directory
 alias r=_fzf_search_history
 alias g=_fzf_search_git_status
 
+alias ls="exa -1 --icons -T -L=1 -a"
+
 # Set up minikube for Docker without Docker Desktop to MacOS
 if type -q minikube
     eval (minikube docker-env)
