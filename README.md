@@ -10,7 +10,7 @@ rm -rf ~/.config/fish/config.fish
 rm -rf ~/.config/fish/fish_plugins
 ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
-ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig 
+ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ```
 
 # Neovim
@@ -51,7 +51,6 @@ Press prefix + I (capital i, as in Install) to fetch the plugin.
 
 ## Fish
 
-
 - [Fish shell](https://github.com/fish-shell/fish-shell)
 - [Fish package manager](https://github.com/jorgebucaran/fisher)
 
@@ -67,13 +66,11 @@ find path by `which fish` and add it to /etc/shells
 
 - [Tide](https://github.com/IlanCosman/tide)
 
-
 ## Dependencies
 
 TODO: Need to update when setting up new env
 
 ### MacOS
-
 
 ```bash
 brew install fzf bat fd ripgrep
@@ -92,17 +89,17 @@ cargo install exa
 ```
 
 # Programming Languages
-- Rust: 
+
+- Rust:
 - Python: [Poetry](https://python-poetry.org/docs/) as package manager
 - Go
 - TypeScript: [Node]
-
 
 # Docker with minikube
 
 ```bash
 minikube start --driver qemu --network socket_vmnet
-val $(minikube docker-env) 
+val $(minikube docker-env)
 ```
 
 [Guide](https://gist.github.com/juancsr/5927e6660d6ba5d2a34c61802d26e50a)
@@ -119,8 +116,19 @@ ln -s /opt/homebrew/opt/docker-buildx/bin/docker-buildx ~/.docker/cli-plugins/do
 
 - For full networking [socket_vmnet](https://github.com/lima-vm/socket_vmnet) is required
 
-
 ```bash
 git clone https://github.com/lima-vm/socket_vmnet.git && cd socket_vmnet
 sudo make install
+```
+
+## Build into image
+
+```fish
+docker build -t myenv .
+```
+
+## Use Image
+
+```fish
+docker run -it --rm myenv
 ```
