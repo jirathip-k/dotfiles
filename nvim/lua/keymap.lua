@@ -41,8 +41,7 @@ local telescope_builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Live Grep" })
-
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Undo Tree" })
+vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undo Tree" })
 
 -- Open parent dir
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
