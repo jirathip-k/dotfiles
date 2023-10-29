@@ -1,0 +1,23 @@
+# Python
+**/__pycache__/
+*.py[cod]
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+poetry.lock
+venv/
+.venv
+
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Node
+node_modules/
+
+# Environment
+.env
+
+# Others
+.DS_Store
+lazy-lock.json

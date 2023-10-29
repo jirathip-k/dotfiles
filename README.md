@@ -11,6 +11,7 @@ rm -rf ~/.config/fish/fish_plugins
 ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
 ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 ```
 
 # Neovim

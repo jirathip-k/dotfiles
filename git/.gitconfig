@@ -2,4 +2,18 @@
 	name = jirathip-k
     email = 115384744+jirathip-k@users.noreply.github.com
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore_global
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[fetch]
+    prune = true
+
+[url "https://github.com/"]
+    insteadOf = gh:
