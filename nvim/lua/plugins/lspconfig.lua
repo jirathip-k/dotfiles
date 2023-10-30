@@ -49,7 +49,7 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = {
-                pyright = { autoImportCompletion = true },
+                pyright = { autoImportCompletion = true, venvPath = "~/.cache/pypoetry/virtualenvs" },
                 python = {
                     analysis = {
                         autoSearchPaths = true,
