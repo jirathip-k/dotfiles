@@ -43,11 +43,12 @@ if status is-interactive
 end
 
 
-# Specific settings for Linux
-if test (uname) = "Linux"
+
+if type -q batcat
     alias bat=batcat
     alias cat=batcat
 end
+
 
 # fzf fish key bind func as terminal cmd
 set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"

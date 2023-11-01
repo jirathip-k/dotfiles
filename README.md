@@ -14,6 +14,19 @@ ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 ```
 
+Arch - Sway
+```
+rm -rf .config/wofi
+ln -s ~/dotfiles/arch/wofi .config/wofi
+rm -rf .config/waybar
+ln -s ~/dotfiles/arch/waybar .config/waybar
+rm -rf .config/sway
+ln -s ~/dotfiles/arch/sway .config/sway
+rm -rf .config/gtklock
+ln -s ~/dotfiles/arch/gtklock .config/gtklock
+```
+
+
 # Neovim
 
 - MacOS
