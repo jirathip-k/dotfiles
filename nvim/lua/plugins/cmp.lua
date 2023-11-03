@@ -20,10 +20,10 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ["k"] = cmp.mapping.select_prev_item(),
-                ["j"] = cmp.mapping.select_next_item(),
+                ["<BS>"] = cmp.mapping.select_prev_item(),
+                ["<CR>"] = cmp.mapping.select_next_item(),
                 ["<Esc>"] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm(),
+                ['\\'] = cmp.mapping.confirm(),
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
