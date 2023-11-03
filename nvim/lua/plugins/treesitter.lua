@@ -36,8 +36,8 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<leader> ",
-					node_incremental = "<leader> ",
+					init_selection = "e",
+					node_incremental = "e",
 				},
 			},
 		})
