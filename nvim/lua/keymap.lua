@@ -23,9 +23,9 @@ end, { desc = "New Line", silent = true, noremap = true })
 vim.keymap.set("n", "\\", "$a", { desc = "End of Line", silent = true, noremap = true })
 vim.keymap.set("n", "<BS>", "k^", { desc = "Start Prev of Line", silent = true, noremap = true })
 vim.keymap.set("n", "0", "^", { desc = "Move to Start of indent", silent = true, noremap = true })
-vim.keymap.set("i", "<M-0>", '<Esc>/\\s*[(<]<CR>a',
+vim.keymap.set("i", "<M-9>", '<Esc>/\\s*[(<]<CR>a',
     { desc = "Move to after opening bracket", silent = true, noremap = true })
-vim.keymap.set("i", "<M-\\>", '<Esc>l/\\s*[)>]<CR>i',
+vim.keymap.set("i", "<M-0>", '<Esc>l/\\s*[)>]<CR>i',
     { desc = "Move to before closing bracket", silent = true, noremap = true })
 
 
