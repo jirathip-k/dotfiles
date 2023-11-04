@@ -12,10 +12,22 @@ return {
             opts.buffer = bufnr
 
             opts.desc = "Show LSP Reference"
-            vim.keymap.set("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", opts)
+            vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+
+            opts.desc = "Go Declaration"
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+            opts.desc = "Go Definition"
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
             opts.desc = "Show Documentation"
             vim.keymap.set("n", "<leader>d", vim.lsp.buf.hover, opts)
+
+            opts.desc = "Code Action"
+            vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
+
+            opts.desc = "Rename"
+            vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 
             opts.desc = "Restart LSP"
             vim.keymap.set("n", "<leader>L", ":LspRestart<CR>", opts)
