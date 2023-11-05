@@ -51,7 +51,7 @@ return {
             local cursor = vim.api.nvim_win_get_cursor(0)
             local cursor_row, cursor_col = cursor[1] - 1, cursor[2] + 1
             local node = ts_utils.get_node_at_cursor()
-            local exit_chars = "[,%)%}%]]"
+            local exit_chars = "[,%)%}%]%>]"
             local default_tab = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
             local lines_count = vim.api.nvim_buf_line_count(0)
 

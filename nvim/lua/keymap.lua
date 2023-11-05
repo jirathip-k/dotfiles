@@ -14,10 +14,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
 -- New Line
-vim.keymap.set("n", "<leader><CR>", function()
-    vim.cmd('startinsert!')
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<CR>", true, false, true), 'n', true)
-end, { desc = "New Line", silent = true, noremap = true })
+vim.keymap.set("n", "<leader><CR>", "<M-o>", { desc = "New Line", silent = true, noremap = true })
 
 -- Better navigation between lines
 vim.keymap.set("n", "\\", "$a", { desc = "End of Line", silent = true, noremap = true })
