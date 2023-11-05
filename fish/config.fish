@@ -66,4 +66,4 @@ end
 # Use docker buildx
 set -gx DOCKER_BUILDKIT 1
 
-
+~/.cargo/bin/rtx activate fish | source

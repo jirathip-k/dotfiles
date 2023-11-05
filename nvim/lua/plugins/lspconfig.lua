@@ -49,6 +49,7 @@ return {
                             [vim.fn.stdpath("config") .. "/lua"] = true,
                         },
                     },
+                    hint = { enable = true }
                 },
             },
         })

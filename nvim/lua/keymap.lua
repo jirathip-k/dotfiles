@@ -23,11 +23,15 @@ end, { desc = "New Line", silent = true, noremap = true })
 vim.keymap.set("n", "\\", "$a", { desc = "End of Line", silent = true, noremap = true })
 vim.keymap.set("n", "<BS>", "k^", { desc = "Start Prev of Line", silent = true, noremap = true })
 vim.keymap.set("n", "0", "^", { desc = "Move to Start of indent", silent = true, noremap = true })
-vim.keymap.set("i", "<M-9>", '<Esc>/\\s*[(<]<CR>a',
+vim.keymap.set("i", "<M-9>", '<Esc>/\\s*[(]<CR>a',
     { desc = "Move to after opening bracket", silent = true, noremap = true })
-vim.keymap.set("i", "<M-0>", '<Esc>l/\\s*[)>]<CR>i',
+vim.keymap.set("i", "<M-0>", '<Esc>l/\\s*[)]<CR>i',
     { desc = "Move to before closing bracket", silent = true, noremap = true })
 
+vim.keymap.set("i", "<M-,>", '<Esc>/\\s*[<]<CR>a',
+    { desc = "Move to after <", silent = true, noremap = true })
+vim.keymap.set("i", "<M-.>", '<Esc>l/\\s*[>]<CR>i',
+    { desc = "Move to before >", silent = true, noremap = true })
 
 -- Search and Replace
 vim.keymap.set(
@@ -51,7 +55,9 @@ vim.keymap.set(
 -- Move between vertical split
 vim.keymap.set("n", "<leader>[", "<C-w>h", { desc = "Move to Left Split", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>]", "<C-w>l", { desc = "Move to Right Split", noremap = true, silent = true })
-
+-- Move between horizontal split
+vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to Lower Split", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to Upper Split", noremap = true, silent = true })
 -- Telescope
 local telescope_builtin = require("telescope.builtin")
 
@@ -87,3 +93,7 @@ vim.keymap.set(
     diagnostics.ShowDiagnosticsInBuffer,
     { desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
 )
+
+vim.keymap.set("n", "<leader>h", function()
+    vim.lsp.inlay_hint(0, nil)
+end, { desc = "Toggle Inlay Hints", noremap = true, silent = true })

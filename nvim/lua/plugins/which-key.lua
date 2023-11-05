@@ -10,9 +10,9 @@ return {
 
         wk.setup({
             layout = {
-                height = { min = 1, max = 5 }, -- set max height to 2
-                width = { min = 20, max = 50 }, -- keep this as is, or adjust to your preference
-                spacing = 3,
+                height = { min = 1, max = 10 },
+                width = { min = 20, max = 50 },
+                spacing = 4,
                 align = "center",
             },
         })
