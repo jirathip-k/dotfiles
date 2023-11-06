@@ -37,10 +37,10 @@ alias vi="nvim ."
 alias vim="nvim ."
 
 # Force TMUX
-if status is-interactive
-    and not set -q TMUX
-    exec tmux
-end
+#if status is-interactive
+#    and not set -q TMUX
+#    exec tmux
+#end
 
 
 
@@ -48,7 +48,7 @@ if type -q batcat
     alias bat=batcat
     alias cat=batcat
 end
-
+set -gx BAT_THEME "Catppuccin-frappe"
 
 # fzf fish key bind func as terminal cmd
 set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"
