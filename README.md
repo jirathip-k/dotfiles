@@ -1,5 +1,7 @@
 # Dotfiles
 
+Install [dotter](https://github.com/SuperCuber/dotter) to manage dotfiles
+
 symlink
 
 ```
