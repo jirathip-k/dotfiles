@@ -10,11 +10,13 @@ rm -rf ~/.config/fish/config.fish
 rm -rf ~/.config/fish/fish_plugins
 ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
+ln -s ~/dotfiles/tide/rainbow.fish ~/.config/fish/functions/tide/configure/configs/rainbow.fish
 ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 ```
 
 Arch - Sway
+
 ```
 rm -rf .config/wofi
 ln -s ~/dotfiles/arch/wofi .config/wofi
@@ -25,7 +27,6 @@ ln -s ~/dotfiles/arch/sway .config/sway
 rm -rf .config/gtklock
 ln -s ~/dotfiles/arch/gtklock .config/gtklock
 ```
-
 
 # Neovim
 

@@ -3,8 +3,8 @@ tide_aws_color 232F3E
 tide_character_color babbf1
 tide_character_color_failure e78284
 tide_cmd_duration_bg_color e5c890
-tide_cmd_duration_color 232634
-tide_cmd_duration_decimals 232634
+tide_cmd_duration_color 303446
+tide_cmd_duration_decimals 303446
 tide_cmd_duration_threshold 3000
 tide_context_always_display false
 tide_context_bg_color 444444
@@ -30,14 +30,14 @@ tide_gcloud_color 000000
 tide_git_bg_color 737994
 tide_git_bg_color_unstable e5c890
 tide_git_bg_color_urgent ea999c
-tide_git_color_branch 232634
-tide_git_color_conflicted 232634
-tide_git_color_dirty 232634
-tide_git_color_operation 232634
-tide_git_color_staged 232634
-tide_git_color_stash 232634
-tide_git_color_untracked 232634
-tide_git_color_upstream 232634
+tide_git_color_branch 303446
+tide_git_color_conflicted 303446
+tide_git_color_dirty 303446
+tide_git_color_operation 303446
+tide_git_color_staged 303446
+tide_git_color_stash 303446
+tide_git_color_untracked 303446
+tide_git_color_upstream 303446
 tide_git_truncation_length 24
 tide_git_truncation_strategy
 tide_go_bg_color 00ACD7
@@ -58,8 +58,8 @@ tide_nix_shell_bg_color 7EBAE4
 tide_nix_shell_color 000000
 tide_node_bg_color 44883E
 tide_node_color 000000
-tide_os_bg_color $os_branding_bg_color
-tide_os_color $os_branding_color
+tide_os_bg_color 838ba7
+tide_os_color c6d0f5
 tide_php_bg_color 617CBE
 tide_php_color 000000
 tide_private_mode_bg_color F1F3F4
@@ -73,9 +73,9 @@ tide_prompt_transient_enabled false
 tide_pulumi_bg_color F7BF2A
 tide_pulumi_color 000000
 tide_pwd_bg_color 8caaee
-tide_pwd_color_anchors 232634
-tide_pwd_color_dirs 232634
-tide_pwd_color_truncated_dirs 232634
+tide_pwd_color_anchors 303446
+tide_pwd_color_dirs 303446
+tide_pwd_color_truncated_dirs 303446
 tide_pwd_markers .bzr .citc .git .hg .node-version .python-version .ruby-version .shorten_folder_marker .svn .terraform Cargo.toml composer.json CVS go.mod package.json
 tide_python_bg_color 444444
 tide_python_color 00AFAF
@@ -94,12 +94,12 @@ tide_shlvl_color 000000
 tide_shlvl_threshold 1
 tide_status_bg_color 2E3436
 tide_status_bg_color_failure e78284
-tide_status_color 232634
-tide_status_color_failure e78284
+tide_status_color 303446
+tide_status_color_failure 303446
 tide_terraform_bg_color 800080
 tide_terraform_color 000000
-tide_time_bg_color 232634
-tide_time_color D3D7CF
+tide_time_bg_color 838ba7
+tide_time_color c6d0f5
 tide_time_format %T
 tide_toolbox_bg_color 613583
 tide_toolbox_color 000000
