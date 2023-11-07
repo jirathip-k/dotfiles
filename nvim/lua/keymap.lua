@@ -1,14 +1,3 @@
--- Yank and copy to system clipboard
-
-vim.keymap.set("n", "yy", '"+yy', { noremap = true, silent = true })
-vim.keymap.set("v", "y", '"+y', { noremap = true, silent = true })
-vim.keymap.set("n", "y$", '"+y$', { noremap = true, silent = true })
-vim.keymap.set("n", "yw", '"+yw', { noremap = true, silent = true })
--- Paste from system clipboard
-vim.keymap.set("n", "p", '"+p', { noremap = true, silent = true })
-vim.keymap.set("n", "P", '"+P', { noremap = true, silent = true })
-vim.keymap.set("v", "p", '"+p', { noremap = true, silent = true })
-vim.keymap.set("v", "P", '"+P', { noremap = true, silent = true })
 -- Move Line
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")

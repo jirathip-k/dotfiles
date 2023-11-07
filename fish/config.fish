@@ -67,3 +67,6 @@ end
 set -gx DOCKER_BUILDKIT 1
 
 ~/.cargo/bin/rtx activate fish | source
+
+fish_vi_key_bindings
+fish_vi_cursor

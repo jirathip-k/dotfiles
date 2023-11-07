@@ -40,10 +40,28 @@ return {
                     node_incremental = "e",
                 },
             },
+            textobjects = {
+                move = {
+                    enable = true,
+                    set_jumps = true,
+                    goto_next_start = {
+                        ["]="] = { query = "@assignment.outer", desc = "Go to next assignment" },
+                        ["]p"] = { query = "@parameter.inner", desc = "Go to next parameter" },
+                        ["]f"] = { query = "@function.outer", desc = "Go to next function" },
+                        ["]c"] = { query = "@class.outer", desc = "Go to next class" },
+                    },
+                    goto_previous_start = {
+                        ["[="] = { query = "@assignment.outer", desc = "Go to prev assignment" },
+                        ["[p"] = { query = "@parameter.inner", desc = "Go to prev parameter" },
+                        ["[f"] = { query = "@function.outer", desc = "Go to prev function" },
+                        ["[c"] = { query = "@class.outer", desc = "Go to prev class" },
+                    },
+                },
+            }
+
         })
 
         local ts_utils = require("nvim-treesitter.ts_utils")
-
 
 
         local function tabout()
@@ -51,14 +69,14 @@ return {
             local cursor = vim.api.nvim_win_get_cursor(0)
             local cursor_row, cursor_col = cursor[1] - 1, cursor[2] + 1
             local node = ts_utils.get_node_at_cursor()
-            local exit_chars = "[,%)%}%]%>]"
+            local exit_chars = "[,%:%;%)%}%]%>]"
             local default_tab = vim.api.nvim_replace_termcodes("<Tab>", true, false, true)
             local lines_count = vim.api.nvim_buf_line_count(0)
 
             while node do
                 local node_type = node:type()
 
-                if node_type == "string" or node_type == "string_fragment" then
+                if node_type == "string" or node_type == "string_fragment" or node_type == "string_literal" then
                     local _, _, end_row, end_col = node:range()
 
                     if end_row < lines_count then

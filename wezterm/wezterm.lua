@@ -6,7 +6,7 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-
+config.font_size = 16
 config.window_decorations = "NONE"
 config.initial_rows = 40
 config.use_fancy_tab_bar = false
