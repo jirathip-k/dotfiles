@@ -4,7 +4,7 @@ tide_character_color babbf1
 tide_character_color_failure e78284
 tide_cmd_duration_bg_color e5c890
 tide_cmd_duration_color 303446
-tide_cmd_duration_decimals 303446
+tide_cmd_duration_decimals 0
 tide_cmd_duration_threshold 3000
 tide_context_always_display false
 tide_context_bg_color 444444

@@ -12,3 +12,23 @@
 [git.files]
 "git/.gitconfig" = "~/.gitconfig"
 "git/.gitignore_global" = "~/.gitignore_global"
+
+[kitty.files]
+"kitty" = "~/.config/kitty"
+
+[tmux.files]
+"tmux/.tmux.conf" = "~/.tmux.conf"
+
+[wofi.files]
+"arch/wofi" = "~/.config/wofi"
+
+[waybar.files]
+"arch/waybar" = "~/.config/waybar"
+
+[sway.files]
+"arch/sway" = "~/.config/sway"
+
+[gtklock.files]
+"arch/gtklock" = "~/.config/gtklock"
+
+

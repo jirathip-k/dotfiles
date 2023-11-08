@@ -6,6 +6,7 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore_global
+    pager = delta
 
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
@@ -17,3 +18,16 @@
 
 [url "https://github.com/"]
     insteadOf = gh:
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

@@ -2,57 +2,19 @@
 
 Install [dotter](https://github.com/SuperCuber/dotter) to manage dotfiles
 
-symlink
-
-```
-ln -s ~/dotfiles/nvim ~/.config/nvim
-ln -s ~/dotfiles/kitty ~/.config/kitty
-ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
-rm -rf ~/.config/fish/config.fish
-rm -rf ~/.config/fish/fish_plugins
-ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
-ln -s ~/dotfiles/fish/fish_plugins ~/.config/fish/fish_plugins
-ln -s ~/dotfiles/tide/rainbow.fish ~/.config/fish/functions/tide/configure/configs/rainbow.fish
-ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/git/.gitignore_global ~/.gitignore_global
-```
-
-Arch - Sway
-
-```
-rm -rf .config/wofi
-ln -s ~/dotfiles/arch/wofi .config/wofi
-rm -rf .config/waybar
-ln -s ~/dotfiles/arch/waybar .config/waybar
-rm -rf .config/sway
-ln -s ~/dotfiles/arch/sway .config/sway
-rm -rf .config/gtklock
-ln -s ~/dotfiles/arch/gtklock .config/gtklock
-```
-
 # Neovim
 
-- MacOS
-
-```bash
-brew install ninja libtool automake cmake pkg-config gettext
-```
-
-Then clone and make from source [Neovim](https://github.com/neovim/neovim)
+- [Neovim](https://github.com/neovim/neovim)
 
 ## Install Hack Nerd Font
 
 - [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
-## Markdown Renderer
-
-- [Glow](https://github.com/charmbracelet/glow)
-
 # Terminal
 
-## Kitty
+## Wezterm
 
-...
+## Kitty
 
 ## TMUX
 
@@ -82,35 +44,6 @@ chsh -s <path-to-fish-shell>
 find path by `which fish` and add it to /etc/shells
 
 - [Tide](https://github.com/IlanCosman/tide)
-
-## Dependencies
-
-TODO: Need to update when setting up new env
-
-### MacOS
-
-```bash
-brew install fzf bat fd ripgrep
-```
-
-### Linux
-
-```bash
-suo apt install ...
-```
-
-## Utilities
-
-```bash
-cargo install exa
-```
-
-# Programming Languages
-
-- Rust:
-- Python: [Poetry](https://python-poetry.org/docs/) as package manager
-- Go
-- TypeScript: [Node]
 
 # Docker with minikube
 
