@@ -7,7 +7,7 @@
 "tide/rainbow.fish" = "~/.config/fish/functions/tide/configure/configs/rainbow.fish"
 
 [wezterm.files]
-"wezterm/wezterm.lua" = "~/.config/wezterm/wezterm.lua"
+"wezterm" = "~/.config/wezterm"
 
 [git.files]
 "git/.gitconfig" = "~/.gitconfig"

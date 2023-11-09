@@ -9,33 +9,34 @@ vim.keymap.set("n", "<leader><CR>", "<M-o>", { desc = "New Line", silent = true,
 vim.keymap.set("n", "\\", "$a", { desc = "End of Line", silent = true, noremap = true })
 vim.keymap.set("n", "<BS>", "k^", { desc = "Start Prev of Line", silent = true, noremap = true })
 vim.keymap.set("n", "0", "^", { desc = "Move to Start of indent", silent = true, noremap = true })
-vim.keymap.set("i", "<M-9>", '<Esc>/\\s*[(]<CR>a',
-    { desc = "Move to after opening bracket", silent = true, noremap = true })
-vim.keymap.set("i", "<M-0>", '<Esc>l/\\s*[)]<CR>i',
-    { desc = "Move to before closing bracket", silent = true, noremap = true })
+vim.keymap.set(
+	"i",
+	"<M-9>",
+	"<Esc>/\\s*[(]<CR>a",
+	{ desc = "Move to after opening bracket", silent = true, noremap = true }
+)
+vim.keymap.set(
+	"i",
+	"<M-0>",
+	"<Esc>l/\\s*[)]<CR>i",
+	{ desc = "Move to before closing bracket", silent = true, noremap = true }
+)
 
-vim.keymap.set("i", "<M-,>", '<Esc>/\\s*[<]<CR>a',
-    { desc = "Move to after <", silent = true, noremap = true })
-vim.keymap.set("i", "<M-.>", '<Esc>l/\\s*[>]<CR>i',
-    { desc = "Move to before >", silent = true, noremap = true })
+vim.keymap.set("i", "<M-,>", "<Esc>/\\s*[<]<CR>a", { desc = "Move to after <", silent = true, noremap = true })
+vim.keymap.set("i", "<M-.>", "<Esc>l/\\s*[>]<CR>i", { desc = "Move to before >", silent = true, noremap = true })
+
+-- Move screen
+vim.keymap.set("n", "J", "<C-d>zz", { desc = "Move down screen", silent = true, noremap = true })
+vim.keymap.set("n", "K", "<C-u>zz", { desc = "Move up screen", silent = true, noremap = true })
+vim.keymap.set("n", "n", "nzz", { desc = "Move up screen", silent = true, noremap = true })
+vim.keymap.set("n", "N", "Nzz", { desc = "Move up screen", silent = true, noremap = true })
 
 -- Search and Replace
 vim.keymap.set(
-    "n",
-    "<leader>s",
-    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Search and Replace" }
-)
-
--- Insert Text in front
-vim.keymap.set("v", "<leader>a", [[:s/^/ /<Left>]], { desc = "Insert Text in front of line" })
-
--- Remove first few characters from each selected line
-vim.keymap.set(
-    "v",
-    "<leader>d",
-    [[:s/^.\{N\}//<Left><Left><Left>]],
-    { desc = "Remove first N characters from selected lines" }
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Search and Replace" }
 )
 
 -- Move between vertical split
@@ -54,32 +55,21 @@ vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undo Tree"
 -- Open parent dir
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- Previous Buffer
-vim.keymap.set(
-    'n', '=', ":b#<CR>",
-    { desc = "Previous buffer", noremap = true, silent = true }
-)
-
+vim.keymap.set("n", "=", ":b#<CR>", { desc = "Previous buffer", noremap = true, silent = true })
 
 -- Vertically split the window
 vim.keymap.set("n", "<leader>v", ":vsp<CR>", { desc = "Vertical Split" })
 
--- Open a terminal in the current window
-vim.keymap.set("n", "<leader>t", ":terminal<CR>", { desc = "Open Terminal" })
-
--- Escape from terminal mode and get back to normal mode
-vim.keymap.set("t", "<C-d>", "<C-\\><C-n>", { desc = "Escape Terminal" })
-
-
-
 -- Show LSP diagnostics in another buffer
-local diagnostics = require('utils.diagnostics')
+local diagnostics = require("utils.diagnostics")
 
 vim.keymap.set(
-    'n', '<leader>b',
-    diagnostics.ShowDiagnosticsInBuffer,
-    { desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
+	"n",
+	"<leader>b",
+	diagnostics.ShowDiagnosticsInBuffer,
+	{ desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
 )
 
 vim.keymap.set("n", "<leader>h", function()
-    vim.lsp.inlay_hint(0, nil)
+	vim.lsp.inlay_hint(0, nil)
 end, { desc = "Toggle Inlay Hints", noremap = true, silent = true })

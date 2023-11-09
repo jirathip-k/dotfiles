@@ -12,7 +12,7 @@ wezterm.on("gui-startup", function()
 	window:gui_window():maximize()
 end)
 
-config.font_size = 16
+config.font_size = 20
 
 config.window_decorations = "NONE"
 config.initial_rows = 40
