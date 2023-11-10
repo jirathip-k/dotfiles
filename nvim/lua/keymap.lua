@@ -2,34 +2,15 @@
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
 
--- New Line
-vim.keymap.set("n", "<leader><CR>", "<M-o>", { desc = "New Line", silent = true, noremap = true })
-
 -- Better navigation between lines
 vim.keymap.set("n", "\\", "$a", { desc = "End of Line", silent = true, noremap = true })
-vim.keymap.set("n", "<BS>", "k^", { desc = "Start Prev of Line", silent = true, noremap = true })
 vim.keymap.set("n", "0", "^", { desc = "Move to Start of indent", silent = true, noremap = true })
-vim.keymap.set(
-	"i",
-	"<M-9>",
-	"<Esc>/\\s*[(]<CR>a",
-	{ desc = "Move to after opening bracket", silent = true, noremap = true }
-)
-vim.keymap.set(
-	"i",
-	"<M-0>",
-	"<Esc>l/\\s*[)]<CR>i",
-	{ desc = "Move to before closing bracket", silent = true, noremap = true }
-)
-
-vim.keymap.set("i", "<M-,>", "<Esc>/\\s*[<]<CR>a", { desc = "Move to after <", silent = true, noremap = true })
-vim.keymap.set("i", "<M-.>", "<Esc>l/\\s*[>]<CR>i", { desc = "Move to before >", silent = true, noremap = true })
 
 -- Move screen
 vim.keymap.set("n", "J", "<C-d>zz", { desc = "Move down screen", silent = true, noremap = true })
 vim.keymap.set("n", "K", "<C-u>zz", { desc = "Move up screen", silent = true, noremap = true })
-vim.keymap.set("n", "n", "nzz", { desc = "Move up screen", silent = true, noremap = true })
-vim.keymap.set("n", "N", "Nzz", { desc = "Move up screen", silent = true, noremap = true })
+vim.keymap.set("n", "n", "nzz", { desc = "Next in search term", silent = true, noremap = true })
+vim.keymap.set("n", "N", "Nzz", { desc = "Prev in search term", silent = true, noremap = true })
 
 -- Search and Replace
 vim.keymap.set(

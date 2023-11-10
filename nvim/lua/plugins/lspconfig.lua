@@ -64,6 +64,8 @@ return {
 		})
 
 		lspconfig["pylsp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 			pylsp = {
 				plugins = {
 					ruff = {

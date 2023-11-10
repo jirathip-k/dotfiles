@@ -6,10 +6,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.smartindent = true
-vim.o.cursorline = true
-
 vim.opt.wrap = false
-
+vim.o.guicursor = "i:block"
 vim.opt.swapfile = false
 vim.opt.backup = false
 
