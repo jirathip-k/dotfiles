@@ -23,6 +23,7 @@ set -gx PATH $HOME/.cargo/bin $PATH
 # Add Python Poetry
 set -gx PATH $HOME/.local/bin $PATH
 
+
 # Specific settings for macOS
 if test (uname) = "Darwin"
     set -gx PATH /opt/homebrew/bin $PATH
@@ -54,7 +55,7 @@ set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"
 alias f=_fzf_search_directory
 alias r=_fzf_search_history
 alias g=_fzf_search_git_status
-
+alias exa=eza
 # Rust utility tools
 #alias ls="exa -1 --icons -T -L=1 -a"
 alias ls="exa --icons"

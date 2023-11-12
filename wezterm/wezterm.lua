@@ -12,8 +12,7 @@ end)
 
 config.font_size = 20
 config.window_decorations = "NONE"
-config.initial_rows = 40
-
+--config.initial_rows = 40
 config.use_fancy_tab_bar = false
 config.color_scheme = "Catppuccin Frappe"
 config.window_background_opacity = 0.9
@@ -24,5 +23,19 @@ config.window_padding = {
 	top = 50,
 	bottom = 20,
 }
+local act = wezterm.action
 
+config.keys = {}
+for i = 1, 8 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'ALT',
+    action = act.ActivateTab(i - 1),
+  })
+end
+table.insert(config.keys, {
+    key = 't',
+    mods = 'ALT',
+    action = act.SpawnTab("CurrentPaneDomain")
+})
 return config
