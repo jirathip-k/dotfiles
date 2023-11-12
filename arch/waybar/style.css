@@ -29,45 +29,42 @@
 @define-color flamingo  #eebebe;
 @define-color rosewater #f2d5cf;
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Hack;
-    font-size: 16px;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family:
+    FontAwesome,
+    JetBrains Mono;
+  font-size: 16px;
 }
 
 window#waybar {
-    background-color: shade(@base, 0.9);
-    border: 2px solid alpha(@crust, 0.3);
+  background-color: shade(@base, 0.9);
+  border: 2px solid alpha(@crust, 0.3);
 }
 
 #workspaces {
-    background-color: @overlay0;
-    border-radius: 10px;
-    padding: 5px;
+  background-color: @overlay0;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 #workspaces button {
-    background-color: @surface0;
-    padding: 0 0.5em;
-    margin: 0 0.1em;
-    color: @subtext1;
+  background-color: @surface0;
+  padding: 0 0.5em;
+  margin: 0 0.1em;
+  color: @subtext1;
 }
 
 #workspaces button.focused {
-    border-bottom: 3px solid @mauve;
-    color: @mauve;
+  border-bottom: 3px solid @mauve;
+  color: @mauve;
 }
-
-
-
 
 #battery {
-    padding: 0 10px;
-    color: @yellow
+  padding: 0 10px;
+  color: @yellow;
 }
-
 
 #network {
-    padding: 0 0.5em;
-    color: @green;
+  padding: 0 0.5em;
+  color: @green;
 }
-

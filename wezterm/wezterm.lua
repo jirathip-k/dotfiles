@@ -1,8 +1,6 @@
 local wezterm = require("wezterm")
 local mux = wezterm.mux
-
 local config = {}
-
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
@@ -13,7 +11,6 @@ wezterm.on("gui-startup", function()
 end)
 
 config.font_size = 20
-
 config.window_decorations = "NONE"
 config.initial_rows = 40
 

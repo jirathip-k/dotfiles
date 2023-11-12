@@ -49,7 +49,6 @@ if type -q batcat
     alias cat=batcat
 end
 set -gx BAT_THEME "Catppuccin-frappe"
-
 # fzf fish key bind func as terminal cmd
 set fzf_dir_opts --bind "enter:execute($EDITOR {} &> /dev/tty)"
 alias f=_fzf_search_directory
