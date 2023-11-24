@@ -13,6 +13,9 @@
 "git/.gitconfig" = "~/.gitconfig"
 "git/.gitignore_global" = "~/.gitignore_global"
 
+[hypr.files]
+"hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
+
 [kitty.files]
 "kitty" = "~/.config/kitty"
 
@@ -31,4 +34,8 @@
 [gtklock.files]
 "arch/gtklock" = "~/.config/gtklock"
 
+[swaylock.files]
+"swaylock/config" = "~/.config/swaylock/config"
 
+[rofi.files]
+"rofi/config.rasi" = "~/.config/rofi/config.rasi"

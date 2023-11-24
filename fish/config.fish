@@ -12,10 +12,12 @@ if not contains /bin $PATH
 end
 
 # Add Go's path
-set -gx PATH $PATH /usr/local/go/bin
+set -gx PATH /usr/local/go/bin $PATH
 
 # Add Go's tool path
 set -gx PATH $PATH $HOME/go/bin
+
+set -gx PATH $HOME/builders/swww/target/release $PATH
 
 # Add Rust's path
 set -gx PATH $HOME/.cargo/bin $PATH
@@ -73,3 +75,6 @@ set -gx DOCKER_BUILDKIT 1
 
 fish_vi_key_bindings
 fish_vi_cursor
+
+fastfetch
+

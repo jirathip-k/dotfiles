@@ -1,5 +1,5 @@
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 #
-output * bg /usr/share/backgrounds/sway/background.jpg fill
+output * bg ~/downloads/background.png fill
 output eDP-1 scale 1
 default_border pixel 0
 default_floating_border pixel 0
