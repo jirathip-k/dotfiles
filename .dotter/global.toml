@@ -22,20 +22,14 @@
 [tmux.files]
 "tmux/.tmux.conf" = "~/.tmux.conf"
 
-[wofi.files]
-"arch/wofi" = "~/.config/wofi"
-
 [waybar.files]
-"arch/waybar" = "~/.config/waybar"
-
-[sway.files]
-"arch/sway" = "~/.config/sway"
-
-[gtklock.files]
-"arch/gtklock" = "~/.config/gtklock"
+"waybar" = "~/.config/waybar"
 
 [swaylock.files]
 "swaylock/config" = "~/.config/swaylock/config"
 
 [rofi.files]
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
+
+[qutebrowser.files]
+"qutebrowser/config.py" = "~/.config/qutebrowser/config.py"

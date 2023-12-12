@@ -38,4 +38,11 @@ table.insert(config.keys, {
     mods = 'ALT',
     action = act.SpawnTab("CurrentPaneDomain")
 })
+
+table.insert(config.keys, {
+    key = 't',
+    mods = 'SUPER',
+    action = act.DisableDefaultAssignment
+})
+
 return config

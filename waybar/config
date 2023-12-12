@@ -11,7 +11,7 @@
 
 	"modules-left": ["custom/padd","custom/l_end","hyprland/workspaces","custom/r_end","","custom/padd"],
 	"modules-center": ["custom/padd","custom/l_end","wlr/taskbar","custom/r_end","custom/padd"],
-	"modules-right": ["custom/padd","custom/l_end","tray","battery","network","bluetooth","pulseaudio","clock","custom/power","custom/r_end","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","battery","network","bluetooth","pulseaudio","clock","custom/power","custom/r_end","custom/padd"],
     
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -34,7 +34,6 @@
 			"firefoxdeveloperedition": "firefox-developer-edition"
 		}
 	},
-
     "custom/power": {
         "format": "{}",
         "exec": "echo ; echo  logout",

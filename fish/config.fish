@@ -15,7 +15,7 @@ end
 set -gx PATH /usr/local/go/bin $PATH
 
 # Add Go's tool path
-set -gx PATH $PATH $HOME/go/bin
+set -gx PATH $HOME/go/bin $PATH
 
 set -gx PATH $HOME/builders/swww/target/release $PATH
 
@@ -75,6 +75,3 @@ set -gx DOCKER_BUILDKIT 1
 
 fish_vi_key_bindings
 fish_vi_cursor
-
-fastfetch
-
