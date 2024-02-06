@@ -1,4 +1,5 @@
 // Config //
+
 configuration {
     modi:                        "drun,filebrowser,run";
     show-icons:                  true;
@@ -9,6 +10,7 @@ configuration {
     window-format:               "{w}{t}";
     font:                        "JetBrainsMono Nerd Font 10";
     icon-theme:                  "Tela-circle-dracula";
+    terminal:                    "wezterm";
 }
 
 * {

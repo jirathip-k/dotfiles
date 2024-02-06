@@ -14,10 +14,10 @@ vim.keymap.set("n", "N", "Nzz", { desc = "Prev in search term", silent = true, n
 
 -- Search and Replace
 vim.keymap.set(
-	"n",
-	"<leader>s",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "Search and Replace" }
+    "n",
+    "<leader>s",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Search and Replace" }
 )
 
 -- Move between vertical split
@@ -45,12 +45,12 @@ vim.keymap.set("n", "<leader>v", ":vsp<CR>", { desc = "Vertical Split" })
 local diagnostics = require("utils.diagnostics")
 
 vim.keymap.set(
-	"n",
-	"<leader>b",
-	diagnostics.ShowDiagnosticsInBuffer,
-	{ desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
+    "n",
+    "<leader>b",
+    diagnostics.ShowDiagnosticsInBuffer,
+    { desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
 )
 
 vim.keymap.set("n", "<leader>h", function()
-	vim.lsp.inlay_hint(0, nil)
+    vim.lsp.inlay_hint(0, nil)
 end, { desc = "Toggle Inlay Hints", noremap = true, silent = true })

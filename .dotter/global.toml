@@ -33,3 +33,6 @@
 
 [qutebrowser.files]
 "qutebrowser/config.py" = "~/.config/qutebrowser/config.py"
+
+[mpv.files]
+"mpv/mpv.conf" = "~/.config/mpv/mpv.conf"
