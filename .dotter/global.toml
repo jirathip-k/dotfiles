@@ -9,9 +9,11 @@
 [wezterm.files]
 "wezterm" = "~/.config/wezterm"
 
+[alacritty.files]
+"alacritty" = "~/.config/alacritty"
+
 [git.files]
 "git/.gitconfig" = "~/.gitconfig"
-"git/.gitignore_global" = "~/.gitignore_global"
 
 [hypr.files]
 "hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"

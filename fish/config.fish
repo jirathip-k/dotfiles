@@ -71,6 +71,8 @@ end
 # Use docker buildx
 set -gx DOCKER_BUILDKIT 1
 
+set -Ua fish_user_paths "$HOME/.rye/shims"
+
 mise activate fish | source
 
 fish_vi_key_bindings
