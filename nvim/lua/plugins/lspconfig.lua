@@ -62,6 +62,12 @@ return {
         lspconfig["gopls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "go", "templ" },
+        })
+
+        lspconfig["templ"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
         })
 
         lspconfig["ruff_lsp"].setup({
@@ -107,6 +113,14 @@ return {
         lspconfig["html"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
+            filetypes = { "html", "templ" },
+        })
+
+
+        lspconfig["htmx"].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            filetypes = { "html", "templ" },
         })
 
         lspconfig["emmet_ls"].setup({

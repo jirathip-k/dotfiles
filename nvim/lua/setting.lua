@@ -18,3 +18,5 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 999
 vim.opt.clipboard = "unnamedplus"
+
+vim.filetype.add({ extension = { templ = "templ" } })

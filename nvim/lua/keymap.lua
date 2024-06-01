@@ -29,6 +29,7 @@ vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to Upper Split", norem
 -- Telescope
 local telescope_builtin = require("telescope.builtin")
 
+
 vim.keymap.set("n", "<leader>f", telescope_builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>g", telescope_builtin.live_grep, { desc = "Live Grep" })
 vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Undo Tree" })
