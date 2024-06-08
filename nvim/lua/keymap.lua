@@ -43,14 +43,14 @@ vim.keymap.set("n", "=", ":b#<CR>", { desc = "Previous buffer", noremap = true, 
 vim.keymap.set("n", "<leader>v", ":vsp<CR>", { desc = "Vertical Split" })
 
 -- Show LSP diagnostics in another buffer
-local diagnostics = require("utils.diagnostics")
-
-vim.keymap.set(
-    "n",
-    "<leader>b",
-    diagnostics.ShowDiagnosticsInBuffer,
-    { desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
-)
+-- local diagnostics = require("utils.diagnostics")
+--
+-- vim.keymap.set(
+--     "n",
+--     "<leader>b",
+--     diagnostics.ShowDiagnosticsInBuffer,
+--     { desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
+-- )
 
 vim.keymap.set("n", "<leader>h", function()
     vim.lsp.inlay_hint(0, nil)

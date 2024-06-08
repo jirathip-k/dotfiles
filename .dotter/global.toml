@@ -9,6 +9,9 @@
 [wezterm.files]
 "wezterm" = "~/.config/wezterm"
 
+[neovide.files]
+"neovide" = "~/.config/neovide"
+
 [alacritty.files]
 "alacritty" = "~/.config/alacritty"
 
