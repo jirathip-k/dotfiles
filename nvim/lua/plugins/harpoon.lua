@@ -29,7 +29,8 @@ return {
             ):find()
         end
 
-        vim.keymap.set("n", "<leader>e", function() toggle_telescope(harpoon:list()) end)
-        vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+        vim.keymap.set("n", "<leader>h", function() toggle_telescope(harpoon:list()) end,
+            { desc = "Harpoon", noremap = true, silent = true })
+        vim.keymap.set("n", "m", function() harpoon:list():add() end)
     end
 }

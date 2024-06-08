@@ -14,21 +14,20 @@ vim.keymap.set("n", "N", "Nzz", { desc = "Prev in search term", silent = true, n
 
 -- Search and Replace
 vim.keymap.set(
-    "n",
-    "<leader>s",
-    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = "Search and Replace" }
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Search and Replace" }
 )
 
 -- Move between vertical split
-vim.keymap.set("n", "<leader>[", "<C-w>h", { desc = "Move to Left Split", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>]", "<C-w>l", { desc = "Move to Right Split", noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>[", "C-w>h", { desc = "Move to Left Split", noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>]", "<C-w>l", { desc = "Move to Right Split", noremap = true, silent = true })
 -- Move between horizontal split
-vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to Lower Split", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to Upper Split", noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Move to Lower Split", noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Move to Upper Split", noremap = true, silent = true })
 -- Telescope
 local telescope_builtin = require("telescope.builtin")
-
 
 vim.keymap.set("n", "<leader>f", telescope_builtin.find_files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>g", telescope_builtin.live_grep, { desc = "Live Grep" })
@@ -52,6 +51,6 @@ vim.keymap.set("n", "<leader>v", ":vsp<CR>", { desc = "Vertical Split" })
 --     { desc = "Show Diagnostics in Current Buffer", noremap = true, silent = true }
 -- )
 
-vim.keymap.set("n", "<leader>h", function()
-    vim.lsp.inlay_hint(0, nil)
-end, { desc = "Toggle Inlay Hints", noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>h", function()
+--     vim.lsp.inlay_hint(0, nil)
+-- end, { desc = "Toggle Inlay Hints", noremap = true, silent = true })
