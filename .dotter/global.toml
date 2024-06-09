@@ -1,6 +1,9 @@
 [nvim.files]
 "nvim" = "~/.config/nvim"
 
+[nvim-windows.files]
+"nvim" = "~/AppData/local/nvim"
+
 [fish.files]
 "fish/config.fish" = "~/.config/fish/config.fish"
 "fish/fish_plugins" = "~/.config/fish/fish_plugins"
