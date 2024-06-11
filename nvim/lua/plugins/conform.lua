@@ -15,17 +15,19 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				python = { "ruff-lsp" },
+				python = { "ruff" },
+				sql = { "sql_formatter" },
+				["*"] = { "injected" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 500,
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>m", function()
 			conform.format({
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 500,
 			})
