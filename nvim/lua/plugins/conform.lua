@@ -16,7 +16,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff" },
-				sql = { "sql_formatter" },
+				sql = { "sql_formatter", "sqlfluff" },
 				["*"] = { "injected" },
 			},
 			format_on_save = {

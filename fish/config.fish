@@ -25,6 +25,7 @@ set -gx PATH $HOME/.cargo/bin $PATH
 # Add Python Poetry
 set -gx PATH $HOME/.local/bin $PATH
 
+set -gx PATH $HOME/.local/share/bob/nvim-bin $PATH
 
 # Specific settings for macOS
 if test (uname) = "Darwin"
