@@ -20,7 +20,7 @@ return {
 				["*"] = { "injected" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
+				lsp_fallback = false,
 				async = false,
 				timeout_ms = 500,
 			},
@@ -32,6 +32,7 @@ return {
 				},
 			},
 		})
+
 		vim.keymap.set({ "n", "v" }, "<leader>m", function()
 			conform.format({
 				lsp_fallback = false,
