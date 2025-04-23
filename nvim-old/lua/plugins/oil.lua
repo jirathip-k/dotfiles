@@ -3,10 +3,6 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local oil = require("oil")
-        -- Open parent dir
-        vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-        -- Previous Buffer
-        vim.keymap.set("n", "=", ":b#<CR>", { desc = "Previous buffer", noremap = true, silent = true })
 
         oil.setup({
             view_options = {

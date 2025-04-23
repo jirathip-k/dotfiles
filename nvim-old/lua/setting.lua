@@ -20,11 +20,3 @@ vim.opt.scrolloff = 999
 vim.opt.clipboard = "unnamedplus"
 
 vim.filetype.add({ extension = { templ = "templ" } })
-
-vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
-})
