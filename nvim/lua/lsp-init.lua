@@ -8,7 +8,7 @@ vim.lsp.enable({
 	-- 'templ',
 	"pyright",
 	"ruff",
-	-- 'tsserver',
+	"tsserver",
 	-- 'cssls',
 	-- 'tailwindcss',
 	-- 'html',

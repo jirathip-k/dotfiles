@@ -1,7 +1,7 @@
 return {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
-	root_markers = { "pyproject.toml", ".git" },
+	root_markers = { ".git" },
 	settings = {
 		Lua = {
 			diagnostics = {
