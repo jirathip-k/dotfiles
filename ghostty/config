@@ -2,7 +2,7 @@
 # Docs: https://ghostty.org/docs/config
 
 # Appearance
-theme = catppuccin-frappe
+theme = Catppuccin Frappe
 font-family = "Hack Nerd Font Mono"
 font-size = 14
 background-opacity = 0.9
@@ -28,7 +28,8 @@ shell-integration = zsh
 # Behaviour
 copy-on-select = clipboard
 confirm-close-surface = false
-macos-option-as-alt = true          # let Alt-based keybinds work
+# Let Alt-based keybinds work (Option no longer types special chars).
+macos-option-as-alt = true
 
 # Keybindings — mirror the old WezTerm Alt+number tab navigation.
 keybind = alt+t=new_tab
