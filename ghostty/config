@@ -21,6 +21,10 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = cursor,sudo,title
 
+# Shell — force zsh as a login shell (don't depend on inherited $SHELL).
+command = /bin/zsh -l
+shell-integration = zsh
+
 # Behaviour
 copy-on-select = clipboard
 confirm-close-surface = false
