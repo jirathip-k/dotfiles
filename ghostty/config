@@ -1,0 +1,38 @@
+# Ghostty — ~/.config/ghostty/config
+# Docs: https://ghostty.org/docs/config
+
+# Appearance
+theme = catppuccin-frappe
+font-family = "Hack Nerd Font Mono"
+font-size = 14
+background-opacity = 0.9
+background-blur-radius = 20
+
+# Window
+window-padding-x = 12
+window-padding-y = 12
+window-padding-balance = true
+macos-titlebar-style = tabs
+window-save-state = always
+mouse-hide-while-typing = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = cursor,sudo,title
+
+# Behaviour
+copy-on-select = clipboard
+confirm-close-surface = false
+macos-option-as-alt = true          # let Alt-based keybinds work
+
+# Keybindings — mirror the old WezTerm Alt+number tab navigation.
+keybind = alt+t=new_tab
+keybind = alt+one=goto_tab:1
+keybind = alt+two=goto_tab:2
+keybind = alt+three=goto_tab:3
+keybind = alt+four=goto_tab:4
+keybind = alt+five=goto_tab:5
+keybind = alt+six=goto_tab:6
+keybind = alt+seven=goto_tab:7
+keybind = alt+eight=goto_tab:8

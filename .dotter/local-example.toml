@@ -1,4 +1,10 @@
+# Copy to .dotter/local.toml (gitignored) and keep only the packages you want
+# deployed on this machine, then run `dotter deploy`.
 packages = [
     "nvim",
-    "wezterm",
+    "zsh",
+    "starship",
+    "ghostty",
+    "git",
+    "tmux",
 ]

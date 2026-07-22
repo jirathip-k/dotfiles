@@ -1,43 +1,22 @@
 [nvim.files]
 "nvim" = "~/.config/nvim"
 
-[nvim-windows.files]
-"nvim" = "~/AppData/local/nvim"
+[zsh.files]
+"zsh/zshenv" = "~/.zshenv"
+"zsh/.zprofile" = "~/.config/zsh/.zprofile"
+"zsh/.zshrc" = "~/.config/zsh/.zshrc"
+"zsh/aliases.zsh" = "~/.config/zsh/aliases.zsh"
+"zsh/.zsh_plugins.txt" = "~/.config/zsh/.zsh_plugins.txt"
 
-[fish.files]
-"fish/config.fish" = "~/.config/fish/config.fish"
-"fish/fish_plugins" = "~/.config/fish/fish_plugins"
-"tide/rainbow.fish" = "~/.config/fish/functions/tide/configure/configs/rainbow.fish"
+[starship.files]
+"starship/starship.toml" = "~/.config/starship.toml"
 
-[wezterm.files]
-"wezterm" = "~/.config/wezterm"
-
-[alacritty.files]
-"alacritty" = "~/.config/alacritty"
+[ghostty.files]
+"ghostty/config" = "~/.config/ghostty/config"
 
 [git.files]
 "git/.gitconfig" = "~/.gitconfig"
-
-[hypr.files]
-"hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
-
-[kitty.files]
-"kitty" = "~/.config/kitty"
+"git/ignore" = "~/.config/git/ignore"
 
 [tmux.files]
-"tmux/.tmux.conf" = "~/.tmux.conf"
-
-[waybar.files]
-"waybar" = "~/.config/waybar"
-
-[swaylock.files]
-"swaylock/config" = "~/.config/swaylock/config"
-
-[rofi.files]
-"rofi/config.rasi" = "~/.config/rofi/config.rasi"
-
-[qutebrowser.files]
-"qutebrowser/config.py" = "~/.config/qutebrowser/config.py"
-
-[mpv.files]
-"mpv/mpv.conf" = "~/.config/mpv/mpv.conf"
+"tmux/tmux.conf" = "~/.config/tmux/tmux.conf"

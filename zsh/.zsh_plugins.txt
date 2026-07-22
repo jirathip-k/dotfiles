@@ -1,0 +1,11 @@
+# antidote plugin list. Order matters:
+#   compinit (ez-compinit) -> completions -> fzf-tab -> autosuggestions -> syntax-highlighting (last)
+# Regenerated into .zsh_plugins.zsh automatically when this file changes.
+
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+
+aloxaf/fzf-tab
+
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting

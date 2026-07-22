@@ -1,38 +1,69 @@
 [user]
 	name = jirathip-k
-    email = 115384744+jirathip-k@users.noreply.github.com
+	email = 115384744+jirathip-k@users.noreply.github.com
+
 [init]
-    defaultBranch = main
+	defaultBranch = main
+
 [core]
-    editor = nvim
-    pager = delta
+	editor = nvim
+	pager = delta
+	excludesfile = ~/.config/git/ignore
 
 [fetch]
-    prune = true
+	prune = true
+	prunetags = true
 
-[url "https://github.com/"]
-    insteadOf = gh:
+[pull]
+	rebase = true
 
-[interactive]
-    diffFilter = delta --color-only
+[push]
+	autoSetupRemote = true
+	followTags = true
 
-[delta]
-    navigate = true
-    side-by-side = true
+[rebase]
+	autosquash = true
+	autostash = true
 
-[merge]
-    conflictstyle = diff3
+[rerere]
+	enabled = true
+
+[column]
+	ui = auto
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname
 
 [diff]
-    colorMoved = default
+	colorMoved = default
+	algorithm = histogram
+
+[merge]
+	conflictstyle = zdiff3
+
+[url "https://github.com/"]
+	insteadOf = gh:
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	side-by-side = true
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+# Use the gh CLI for GitHub auth. PATH-resolved so it works on macOS + Linux.
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper =
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	helper =
+	helper = !gh auth git-credential

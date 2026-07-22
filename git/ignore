@@ -1,0 +1,29 @@
+# Global gitignore (core.excludesfile) — machine/editor noise, never per-repo.
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+tags
+
+# Direnv / env
+.direnv/
+.envrc.local
+
+# Node / Python caches that slip through
+node_modules/
+__pycache__/
+.venv/
+
+# Claude Code local settings
+**/.claude/settings.local.json

@@ -10,7 +10,7 @@ vim.lsp.enable({
 	"ruff",
 	"tsserver",
 	-- 'cssls',
-	-- 'tailwindcss',
+	'tailwindcss',
 	-- 'html',
 	-- 'htmx',
 	-- 'emmet_ls',
