@@ -48,8 +48,32 @@ zsh with [antidote](https://github.com/mattmc3/antidote) (plugins in
 ## Neovim
 
 Requires Neovim 0.11+. Plugins via [lazy.nvim](https://github.com/folke/lazy.nvim)
-(pinned in `nvim/lazy-lock.json`); LSPs configured under `nvim/lsp/`. Nerd Font
-required — `font-hack-nerd-font` is in the Brewfile.
+(pinned in `nvim/lazy-lock.json`); native LSP configured under `nvim/lsp/` and
+enabled in `nvim/lua/lsp-init.lua`. Nerd Font required — `font-hack-nerd-font`
+is in the Brewfile.
+
+**Languages** (LSP + treesitter + format-on-save):
+
+| Lang | LSP | Formatter |
+|------|-----|-----------|
+| TypeScript/JS | `typescript-language-server` | prettier |
+| Swift / iOS | `sourcekit-lsp` (via `xcrun`, needs Xcode) | swift-format |
+| Python | `pyright` + `ruff` | ruff |
+| Lua | `lua-language-server` | stylua |
+
+Treesitter uses the `master` branch (full highlight + indent + incremental
+selection). Most parsers install automatically; **Swift needs a one-time build**
+because its grammar must be generated and Neovim's ABI 15 is newer than master's
+auto-generator supports:
+
+```sh
+nvim/scripts/build-swift-parser.sh   # needs the tree-sitter CLI + a C compiler
+```
+
+LSP keymaps (buffer-local on attach): `gd` definition, `gD` declaration, `gi`
+implementation, `gy` type def, `K` hover, `<leader>rn` rename, `<leader>ca` code
+action, `<leader>d` diagnostics float, `[d`/`]d` navigate, `<leader>th` toggle
+inlay hints, `<leader>m` format.
 
 ## tmux
 

@@ -12,10 +12,12 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				json = { "prettier" },
+				jsonc = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "ruff_format" },
+				swift = { "swift_format" },
 				sql = { "sql_formatter" },
 				["*"] = { "injected" },
 			},
@@ -28,6 +30,12 @@ return {
 				ruff_format = {
 					command = "ruff",
 					args = { "format", "-" },
+					stdin = true,
+				},
+				-- swift-format ships with Xcode; reach it via xcrun (not on PATH).
+				swift_format = {
+					command = "xcrun",
+					args = { "swift-format", "format", "-" },
 					stdin = true,
 				},
 			},

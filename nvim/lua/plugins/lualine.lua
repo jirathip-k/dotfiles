@@ -10,7 +10,9 @@ return {
 				lualine_c = { "buffers" },
 				lualine_x = { "filetype" },
 				lualine_y = { "location" },
-				lualine_z = { "os.date('%Y-%m-%d %H:%M:%S')" },
+				lualine_z = {
+					{ function() return os.date("%Y-%m-%d %H:%M:%S") end },
+				},
 			},
 		})
 	end,

@@ -21,6 +21,7 @@ brew "bat"           # modern cat
 brew "fd"            # modern find
 brew "ripgrep"       # fast grep (rg)
 brew "neovim"
+brew "tree-sitter"   # CLI, for building generated parsers (e.g. swift)
 
 # --- Language servers / dev tooling ----------------------------------------
 brew "uv"                              # Python packaging
