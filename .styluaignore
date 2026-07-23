@@ -1,0 +1,4 @@
+nvim/lsp/tailwindcss.lua
+nvim/lua/plugins/lualine.lua
+nvim/lua/lsp-init.lua
+nvim/lua/plugins/oil.lua
