@@ -42,6 +42,7 @@ brew "dotter"        # dotfiles manager for this repo
 
 # --- GUI apps & fonts -------------------------------------------------------
 cask "ghostty"
+cask "cmux"          # Ghostty-based terminal with agent workspaces; reads ghostty/config
 cask "font-hack-nerd-font"
 cask "visual-studio-code"
 cask "godot"
