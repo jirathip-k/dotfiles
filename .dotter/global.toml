@@ -14,6 +14,9 @@
 [ghostty.files]
 "ghostty/config" = "~/.config/ghostty/config"
 
+[cmux.files]
+"cmux/cmux.json" = "~/.config/cmux/cmux.json"
+
 [git.files]
 "git/.gitconfig" = "~/.gitconfig"
 "git/ignore" = "~/.config/git/ignore"
