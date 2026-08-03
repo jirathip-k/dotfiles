@@ -17,6 +17,9 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
 | `Brewfile` | — | All Homebrew packages/casks |
 
+`vial/` holds the [Vial](https://get.vial.today) keymap backup for the Corne
+keyboard (`corne-choc.vil`) — versioned here, not deployed by dotter.
+
 ## Fresh install
 
 ```sh
