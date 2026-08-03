@@ -1,3 +1,9 @@
 .dotter/local.toml
 .dotter/cache.toml
 .dotter/cache
+
+.worktrees/
+
+.agent-runs/
+
+*.bak
