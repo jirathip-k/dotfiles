@@ -14,6 +14,7 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `nvim/` | `~/.config/nvim/` | Neovim (0.11+, native LSP) |
 | `git/` | `~/.gitconfig`, `~/.config/git/ignore` | Git config + global ignore |
 | `tmux/` | `~/.config/tmux/tmux.conf` | tmux |
+| `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
 | `Brewfile` | — | All Homebrew packages/casks |
 
 ## Fresh install
