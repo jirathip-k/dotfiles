@@ -24,3 +24,20 @@ alias reload='exec zsh'
 
 # Note: grep is intentionally NOT aliased to rg — use `rg` directly so scripts
 # and grep's own flags keep working. fzf lives on Ctrl-R / Ctrl-T / Alt-C.
+
+# Print the agent-ops GitHub App private key from the login keychain.
+# `security -w` hex-encodes any value containing newlines, which a PEM always
+# has, so a bare `find-generic-password` pipes an unusable blob. Decode it and
+# restore the trailing newline the keychain drops.
+#   agent-ops-key | gh secret set AGENT_APP_PRIVATE_KEY --repo OWNER/REPO
+agent-ops-key() {
+  security find-generic-password -s agent-ops-app-key -w | python3 -c '
+import binascii, sys
+raw = sys.stdin.read().strip()
+try:
+    out = binascii.unhexlify(raw).decode()
+except (binascii.Error, ValueError):
+    out = raw
+sys.stdout.write(out.rstrip("\n") + "\n")
+'
+}
