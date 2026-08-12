@@ -27,3 +27,6 @@
 [claude.files]
 "claude/settings.json" = "~/.claude/settings.json"
 "claude/CLAUDE.md" = "~/.claude/CLAUDE.md"
+
+[launchd.files]
+"launchd/com.jirathip.caffeinate.plist" = "~/Library/LaunchAgents/com.jirathip.caffeinate.plist"

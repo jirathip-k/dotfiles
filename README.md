@@ -15,6 +15,7 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `git/` | `~/.gitconfig`, `~/.config/git/ignore` | Git config + global ignore |
 | `tmux/` | `~/.config/tmux/tmux.conf` | tmux |
 | `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
+| `launchd/` | `~/Library/LaunchAgents/` | Launch agents (keep-awake for the Orca server) |
 | `scripts/` | — | Helper scripts (run from repo, not deployed) |
 | `Brewfile` | — | All Homebrew packages/casks |
 
@@ -83,6 +84,19 @@ orca environment add --name macbook --pairing-code <printed code>
 Verify with `orca environment show --environment macbook` or `orca --environment macbook status --json`.
 Use `--sidecar --mobile-pairing` for a mobile QR while the app stays open
 (separate profile at `~/Library/Application Support/orca-serve`, port 6769).
+
+### Keeping the Mac awake
+
+The Orca app (and its remote runtime) sleeps with the Mac. A launchd agent
+runs `caffeinate -dimsu` from login onward so idle sleep never kicks in while
+the machine is plugged in:
+
+```sh
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.caffeinate.plist   # once after deploy
+```
+
+Notes: closing the lid still sleeps a MacBook unless it's in clamshell mode
+with power + display; on battery, macOS may sleep anyway.
 
 ## Shell
 
