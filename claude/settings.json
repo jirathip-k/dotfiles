@@ -1,6 +1,5 @@
 {
-  "model": "opus[1m]",
-  "autoMemoryEnabled": false,
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -128,5 +127,6 @@
     "vercel@claude-plugins-official": true
   },
   "tui": "fullscreen",
+  "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true
 }
