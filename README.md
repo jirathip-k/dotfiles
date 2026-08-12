@@ -15,6 +15,7 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `git/` | `~/.gitconfig`, `~/.config/git/ignore` | Git config + global ignore |
 | `tmux/` | `~/.config/tmux/tmux.conf` | tmux |
 | `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
+| `scripts/` | — | Helper scripts (run from repo, not deployed) |
 | `Brewfile` | — | All Homebrew packages/casks |
 
 `vial/` holds the [Vial](https://get.vial.today) keymap backup for the Corne
@@ -37,6 +38,51 @@ chsh -s /bin/zsh
 ```
 
 Open a new terminal — antidote clones the zsh plugins on first launch.
+
+## Remote Orca access (over Tailscale)
+
+Install Tailscale (`cask "tailscale"` in the Brewfile), log in, and make sure
+the target device is on the same tailnet.
+
+> macOS 15+ gotcha: Tailscale's network extension approval lives in
+> **System Settings → General → Login Items & Extensions → Network
+> Extensions** (not Privacy & Security). If the app's "Required permissions"
+> window is stuck, quit and relaunch Tailscale after enabling it.
+
+### Primary: advertise the app (recommended)
+
+The desktop app advertises itself — real profile, all worktrees visible:
+
+1. Orca → **Settings → Remote Orca Servers** → under *Advertise this app as a
+   server* → **New Link**
+2. Connection address: pick the **Tailscale** address (e.g. `100.x.y.z`),
+   **Generate Access Link**
+3. On the other machine/phone: scan the QR or paste the link (Orca Mobile's
+   "local network" QR scanner accepts any `orca://pair` code — the Tailscale
+   address is baked into the link)
+
+Usage/accounts (Claude, Codex, OpenCode Go, …) is served from this Mac to
+remote clients — pull-to-refresh the Accounts screen on mobile if it looks
+stale.
+
+### Alternative: headless `orca serve`
+
+For a dedicated headless runtime (fresh empty profile — no worktrees):
+
+```sh
+~/Projects/dotfiles/scripts/orca-remote.sh                # app must be quit
+~/Projects/dotfiles/scripts/orca-remote.sh --sidecar      # runs alongside the app
+```
+
+It resolves the Tailscale IPv4 and prints a pairing link/code. Pair with:
+
+```sh
+orca environment add --name macbook --pairing-code <printed code>
+```
+
+Verify with `orca environment show --environment macbook` or `orca --environment macbook status --json`.
+Use `--sidecar --mobile-pairing` for a mobile QR while the app stays open
+(separate profile at `~/Library/Application Support/orca-serve`, port 6769).
 
 ## Shell
 

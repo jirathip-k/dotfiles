@@ -41,6 +41,7 @@ brew "poppler"
 brew "dotter"        # dotfiles manager for this repo
 
 # --- GUI apps & fonts -------------------------------------------------------
+cask "tailscale"     # mesh VPN — remote Orca runtime access
 cask "ghostty"
 cask "cmux"          # Ghostty-based terminal with agent workspaces; reads ghostty/config
 cask "font-hack-nerd-font"
