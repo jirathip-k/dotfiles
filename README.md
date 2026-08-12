@@ -15,6 +15,7 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `git/` | `~/.gitconfig`, `~/.config/git/ignore` | Git config + global ignore |
 | `tmux/` | `~/.config/tmux/tmux.conf` | tmux |
 | `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
+| `opencode/` | `~/.config/opencode/opencode.jsonc`, `instructions.md` | opencode config (DeepSeek, YOLO permissions, Orca skills guide) |
 | `launchd/` | `~/Library/LaunchAgents/` | Launch agents (keep-awake for the Orca server) |
 | `scripts/` | — | Helper scripts (run from repo, not deployed) |
 | `Brewfile` | — | All Homebrew packages/casks |
