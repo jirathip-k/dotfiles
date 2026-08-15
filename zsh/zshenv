@@ -10,3 +10,7 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 # Relocate zsh's own dotfiles into $XDG_CONFIG_HOME/zsh so $HOME stays clean.
 # Everything below this line lives in $ZDOTDIR (.zprofile, .zshrc, ...).
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# Hermes Agent CLI (managed venv). Appended, not prepended: the venv's generic
+# python/pip must not shadow user binaries in ~/.local/bin or Homebrew.
+export PATH="$PATH:$HOME/.hermes/hermes-agent/venv/bin"
