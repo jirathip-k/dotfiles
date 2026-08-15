@@ -15,9 +15,9 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `git/` | `~/.gitconfig`, `~/.config/git/ignore` | Git config + global ignore |
 | `tmux/` | `~/.config/tmux/tmux.conf` | tmux |
 | `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
-| `opencode/` | `~/.config/opencode/opencode.jsonc`, `instructions.md` | opencode config (DeepSeek, YOLO permissions, Orca skills guide) |
+| `opencode/` | `~/.config/opencode/opencode.jsonc`, `instructions.md` | opencode config (DeepSeek, YOLO permissions) |
 | `launchd/` | `~/Library/LaunchAgents/` | Launch agents (herdr server, keep-awake) |
-| `scripts/` | — | Helper scripts (run from repo, not deployed) |
+| `scripts/` | — | Helper scripts (run from repo, not deployed) — `setup-mac.sh` for new machines |
 | `Brewfile` | — | All Homebrew packages/casks |
 
 `vial/` holds the [Vial](https://get.vial.today) keymap backup for the Corne
@@ -41,60 +41,36 @@ chsh -s /bin/zsh
 
 Open a new terminal — antidote clones the zsh plugins on first launch.
 
-## Remote Orca access (over Tailscale)
+## Setup (new machine)
 
-Install Tailscale (`cask "tailscale"` in the Brewfile), log in, and make sure
-the target device is on the same tailnet.
-
-> macOS 15+ gotcha: Tailscale's network extension approval lives in
-> **System Settings → General → Login Items & Extensions → Network
-> Extensions** (not Privacy & Security). If the app's "Required permissions"
-> window is stuck, quit and relaunch Tailscale after enabling it.
-
-### Primary: advertise the app (recommended)
-
-The desktop app advertises itself — real profile, all worktrees visible:
-
-1. Orca → **Settings → Remote Orca Servers** → under *Advertise this app as a
-   server* → **New Link**
-2. Connection address: pick the **Tailscale** address (e.g. `100.x.y.z`),
-   **Generate Access Link**
-3. On the other machine/phone: scan the QR or paste the link (Orca Mobile's
-   "local network" QR scanner accepts any `orca://pair` code — the Tailscale
-   address is baked into the link)
-
-Usage/accounts (Claude, Codex, OpenCode Go, …) is served from this Mac to
-remote clients — pull-to-refresh the Accounts screen on mobile if it looks
-stale.
-
-### Alternative: headless `orca serve`
-
-For a dedicated headless runtime (fresh empty profile — no worktrees):
+One script does the full machine bring-up — idempotent, run it any time:
 
 ```sh
-~/Projects/dotfiles/scripts/orca-remote.sh                # app must be quit
-~/Projects/dotfiles/scripts/orca-remote.sh --sidecar      # runs alongside the app
+~/Projects/dotfiles/scripts/setup-mac.sh          # full: brew bundle, dotter deploy, launchd, SSH
+~/Projects/dotfiles/scripts/setup-mac.sh --check  # verify only, changes nothing
 ```
 
-It resolves the Tailscale IPv4 and prints a pairing link/code. Pair with:
+`--check` reports each subsystem (launch agents, SSH, Tailscale, Mosh,
+herdr). The full run prompts for sudo once (only needed for the SSH step —
+Remote Login can't be enabled by an agent).
+
+## Launch agents
+
+LaunchAgents live in `launchd/` and deploy to `~/Library/LaunchAgents/` via
+dotter. Bootstrap once after a fresh deploy (can't be done by an agent —
+needs a user terminal); `setup-mac.sh` does this for you:
 
 ```sh
-orca environment add --name macbook --pairing-code <printed code>
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.herdr-server.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.caffeinate.plist
 ```
 
-Verify with `orca environment show --environment macbook` or `orca --environment macbook status --json`.
-Use `--sidecar --mobile-pairing` for a mobile QR while the app stays open
-(separate profile at `~/Library/Application Support/orca-serve`, port 6769).
+| Agent | Purpose |
+|---|---|
+| `com.jirathip.herdr-server` | herdr server daemon — keeps agent sessions/panes alive across logout & reboot |
+| `com.jirathip.caffeinate` | runs `caffeinate -dimsu` from login — no idle sleep while plugged in |
 
-### Keeping the Mac awake
-
-The Orca app (and its remote runtime) sleeps with the Mac. A launchd agent
-runs `caffeinate -dimsu` from login onward so idle sleep never kicks in while
-the machine is plugged in:
-
-```sh
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.caffeinate.plist   # once after deploy
-```
+Verify: `launchctl list | grep jirathip`.
 
 Notes: closing the lid still sleeps a MacBook unless it's in clamshell mode
 with power + display; on battery, macOS may sleep anyway.
@@ -114,7 +90,7 @@ Workflow rules:
   same repo).
 - Hermes orchestrates and delegates; herdr hosts the agent sessions.
 - Long-running runs (soaks, endurance tests) stay in herdr panes — they
-  survive via the launchd agents below.
+  survive via the launch agents above.
 
 Known gaps (accepted):
 
@@ -124,6 +100,35 @@ Known gaps (accepted):
 
 Revisit if: you need agent execution on a headless box for non-iOS work, or
 want remote reattach over SSH without keeping the MacBook awake.
+
+## Remote attach from iPhone (Moshi)
+
+[Moshi](https://getmoshi.app) — iOS terminal for herdr/tmux over SSH/MOSH.
+Full interactive herdr TUI from the phone, anywhere.
+
+Prereqs (all in this repo except two macOS settings):
+
+1. **Tailscale** — `cask "tailscale"` in Brewfile; Mac + iPhone on same tailnet.
+   Get the Mac's tailnet address: `tailscale ip -4` (or MagicDNS name from
+   `tailscale status`).
+2. **Remote Login (SSH)** — macOS system setting, not in this repo:
+   `sudo launchctl enable system/com.openssh.sshd && sudo launchctl bootstrap system /System/Library/LaunchDaemons/ssh.plist`
+   or System Settings → General → Sharing → Remote Login. Requires sudo;
+   cannot be scripted by an agent — `setup-mac.sh` handles it (note:
+   `systemsetup` needs Full Disk Access; the launchctl path avoids that).
+3. **Mosh server** — `brew "mosh"` in Brewfile.
+4. **herdr server** — LaunchAgent in `launchd/` (see Launch agents section above).
+
+Phone connection (Moshi):
+
+- Host: Mac's tailnet IP (`100.x.x.x`, e.g. `100.67.222.5`) or MagicDNS name
+- User: `jirathip`
+- Protocol: Mosh (SSH fallback)
+- Then run `herdr` — same server/panes as the desktop.
+
+Note: tailnet IPs are stable per device but re-run `tailscale ip -4` if the
+Mac changes identity. New machine: run `scripts/setup-mac.sh` (covers brew
+bundle, dotter deploy, launchd bootstrap, Remote Login).
 
 ## Shell
 

@@ -13,6 +13,7 @@ brew "git-delta"     # nicer git diffs
 brew "gh"            # GitHub CLI (also git credential helper)
 brew "lazygit"
 brew "tmux"
+brew "mosh"          # remote terminal protocol — phone attach via Moshi (UDP, roaming-friendly)
 brew "mise"          # runtime/version manager
 brew "fzf"
 brew "zoxide"        # smarter cd (`z`)
@@ -41,7 +42,7 @@ brew "poppler"
 brew "dotter"        # dotfiles manager for this repo
 
 # --- GUI apps & fonts -------------------------------------------------------
-cask "tailscale"     # mesh VPN — remote Orca runtime access
+cask "tailscale"     # mesh VPN — remote access to this Mac from phone/other devices
 cask "ghostty"
 cask "cmux"          # Ghostty-based terminal with agent workspaces; reads ghostty/config
 cask "font-hack-nerd-font"
