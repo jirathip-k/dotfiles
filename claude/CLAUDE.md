@@ -6,8 +6,9 @@
 - Primary stacks: TypeScript/JS, Swift/iOS, and Python (`uv` + `ruff` + `pyright`).
 - Editor: Neovim.
 - Commit message style: `component: imperative summary` (e.g. `nvim: fix lualine theme name`).
-- Always use the `orca-cli` skill to create worktrees and spawn agents — not raw
-  `git worktree` or direct `codex`/agent invocations.
+- Always use Herdr for worktrees and agent sessions (`herdr` TUI/CLI; Hermes
+  orchestrates and delegates). Don't hand-spawn competing agent sessions
+  outside herdr.
 - Spawn agents in yolo mode so they never stop for permission prompts:
   `claude --dangerously-skip-permissions`, `codex --dangerously-bypass-approvals-and-sandbox`.
 - **Every worktree gets two independent agents: an implementer, then a reviewer.**

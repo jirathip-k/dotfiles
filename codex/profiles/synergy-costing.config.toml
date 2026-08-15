@@ -1,0 +1,5 @@
+[mcp_servers.supabase-dev]
+url = "https://mcp.supabase.com/mcp?project_ref=zgjxgrdztrvdzkexfjns"
+
+[mcp_servers.supabase-prod]
+url = "https://mcp.supabase.com/mcp?project_ref=twsymzcbnfgzdpokjpdh&read_only=true"

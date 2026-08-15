@@ -16,7 +16,7 @@ Personal macOS dev environment — **zsh + Ghostty + Neovim**, managed with
 | `tmux/` | `~/.config/tmux/tmux.conf` | tmux |
 | `claude/` | `~/.claude/settings.json`, `~/.claude/CLAUDE.md` | Claude Code settings + global memory |
 | `opencode/` | `~/.config/opencode/opencode.jsonc`, `instructions.md` | opencode config (DeepSeek, YOLO permissions, Orca skills guide) |
-| `launchd/` | `~/Library/LaunchAgents/` | Launch agents (keep-awake for the Orca server) |
+| `launchd/` | `~/Library/LaunchAgents/` | Launch agents (herdr server, keep-awake) |
 | `scripts/` | — | Helper scripts (run from repo, not deployed) |
 | `Brewfile` | — | All Homebrew packages/casks |
 
@@ -98,6 +98,32 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.caffeinate.
 
 Notes: closing the lid still sleeps a MacBook unless it's in clamshell mode
 with power + display; on battery, macOS may sleep anyway.
+
+## Agent runtime: Herdr (Orca retired)
+
+Decision (2026-08-15): **Orca retired** (Electron RAM overhead); agent
+worktrees and sessions now run under [Herdr](https://herdr.dev)
+(`~/.local/bin/herdr`, v0.7.5) — persistent panes survive agent crashes, and
+`herdr --remote` enables SSH attach from another device (Mac mini/VPS) with
+no workflow changes. Former Orca workspaces were recreated as herdr tabs
+grouped by project.
+
+Workflow rules:
+
+- One worktree → one agent → one tool (never two worktree managers over the
+  same repo).
+- Hermes orchestrates and delegates; herdr hosts the agent sessions.
+- Long-running runs (soaks, endurance tests) stay in herdr panes — they
+  survive via the launchd agents below.
+
+Known gaps (accepted):
+
+- Simulator + Xcode + computer-use remain macOS-bound; a headless Linux box
+  can't run the iOS build/test loop.
+- Reattach from another device requires Remote Login (SSH) enabled on the Mac.
+
+Revisit if: you need agent execution on a headless box for non-iOS work, or
+want remote reattach over SSH without keeping the MacBook awake.
 
 ## Shell
 

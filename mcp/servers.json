@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schemastore.org/schema.json",
+  "global": [
+    {
+      "name": "supabase-readonly",
+      "url": "https://mcp.supabase.com/mcp?read_only=true"
+    }
+  ],
+  "projects": {
+    "sendmeter": {
+      "path": "~/Projects/sendmeter",
+      "servers": [
+        {
+          "name": "supabase-dev",
+          "url": "https://mcp.supabase.com/mcp?project_ref=mjkndfhjnipomjjhgsxv",
+          "read_only": false
+        },
+        {
+          "name": "supabase-prod",
+          "url": "https://mcp.supabase.com/mcp?project_ref=zznsqmcewtzlnfoiefkk&read_only=true"
+        }
+      ]
+    },
+    "synergy-costing": {
+      "path": "~/Projects/synergy-costing",
+      "servers": [
+        {
+          "name": "supabase-dev",
+          "url": "https://mcp.supabase.com/mcp?project_ref=zgjxgrdztrvdzkexfjns",
+          "read_only": false
+        },
+        {
+          "name": "supabase-prod",
+          "url": "https://mcp.supabase.com/mcp?project_ref=twsymzcbnfgzdpokjpdh&read_only=true"
+        }
+      ]
+    }
+  }
+}

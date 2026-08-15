@@ -3,6 +3,15 @@
   "model": "opencode-go/deepseek-v4-flash",
   "small_model": "opencode-go/deepseek-v4-flash",
   "instructions": ["instructions.md"],
+  "lsp": true,
+  "formatter": true,
+  "mcp": {
+    "supabase-readonly": {
+      "type": "remote",
+      "url": "https://mcp.supabase.com/mcp?read_only=true",
+      "enabled": true
+    }
+  },
   "permission": {
     "read": "allow",
     "edit": "allow",

@@ -95,3 +95,7 @@ command -v zoxide   >/dev/null && eval "$(zoxide init zsh)"
 command -v mise     >/dev/null && eval "$(mise activate zsh)"
 # fzf keybindings (Ctrl-R history, Ctrl-T files, Alt-C cd). Load after vi mode.
 command -v fzf      >/dev/null && source <(fzf --zsh)
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
