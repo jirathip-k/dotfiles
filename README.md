@@ -63,12 +63,20 @@ needs a user terminal); `setup-mac.sh` does this for you:
 ```sh
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.herdr-server.plist
 launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.caffeinate.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.hermes-dashboard.plist
 ```
 
 | Agent | Purpose |
 |---|---|
 | `com.jirathip.herdr-server` | herdr server daemon — keeps agent sessions/panes alive across logout & reboot |
 | `com.jirathip.caffeinate` | runs `caffeinate -dimsu` from login — no idle sleep while plugged in |
+| `com.jirathip.hermes-dashboard` | Hermes web dashboard — `hermes dashboard --no-open --host 0.0.0.0 --port 9119`, auth-gated (dashboard.basic_auth in config.yaml), tailnet-reachable at `http://<mac>.tail*.ts.net:9119` |
+
+The dashboard binds 0.0.0.0 and REQUIRES an auth provider — set
+`hermes config set dashboard.basic_auth.username <user>` +
+`password_hash` (via `plugins.dashboard_auth.basic.hash_password`) before
+first bootstrap, or the job exits with "Refusing to bind dashboard to
+0.0.0.0 — no auth providers are registered".
 
 Verify: `launchctl list | grep jirathip`.
 

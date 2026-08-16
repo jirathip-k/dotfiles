@@ -55,7 +55,7 @@ fi
 
 # ---------- 3. Launch agents ----------
 say "3/4 Launch agents"
-for label in com.jirathip.herdr-server com.jirathip.caffeinate; do
+for label in com.jirathip.herdr-server com.jirathip.caffeinate com.jirathip.hermes-dashboard; do
   plist="$HOME/Library/LaunchAgents/$label.plist"
   if agent_loaded "$label"; then
     ok "$label already running"
@@ -73,11 +73,16 @@ if pgrep -x sshd >/dev/null; then
 elif [ "$MODE" = "check" ]; then
   warn "Remote Login is OFF — run full setup to enable"
 else
-  # launchctl path avoids systemsetup's Full Disk Access requirement
-  sudo launchctl enable system/com.openssh.sshd
-  sudo launchctl bootstrap system /System/Library/LaunchDaemons/ssh.plist \
-    || sudo launchctl kickstart -k system/com.openssh.sshd
-  if pgrep -x sshd >/dev/null; then ok "sshd running"; else fail "sshd still not up"; fi
+  # Apple's sshd-keygen-wrapper exits 255 on macOS 26.5 (silent: stderr -> /dev/null)
+  # while raw sshd works. Bypass it: custom LaunchDaemon runs sshd -D directly.
+  # Host keys already exist, so the wrapper's keygen job is unnecessary.
+  sudo launchctl disable system/com.openssh.sshd 2>/dev/null || true
+  sudo mkdir -p /Library/LaunchDaemons
+  sudo ln -sf "$REPO_ROOT/launchd/com.jirathip.sshd.plist" \
+    /Library/LaunchDaemons/com.jirathip.sshd.plist
+  sudo launchctl bootstrap system /Library/LaunchDaemons/com.jirathip.sshd.plist \
+    || sudo launchctl kickstart -k system/com.jirathip.sshd
+  if pgrep -x sshd >/dev/null; then ok "sshd running"; else fail "sshd not up — see /var/log/sshd.jirathip.err"; fi
 fi
 
 # ---------- 5. Verification ----------
