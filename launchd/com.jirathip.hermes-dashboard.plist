@@ -10,7 +10,7 @@
 		<string>dashboard</string>
 		<string>--no-open</string>
 		<string>--host</string>
-		<string>127.0.0.1</string>
+		<string>0.0.0.0</string>
 		<string>--port</string>
 		<string>9119</string>
 	</array>
