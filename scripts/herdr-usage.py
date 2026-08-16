@@ -410,7 +410,58 @@ def agent_totals(rows):
     return totals
 
 
-def render_board(rows):
+def render_timeframe_summary(rows, label):
+    """Per-provider share of the requested time frame — the '% per provider
+    per time frame' view: usage as percentages of the window, not dollars."""
+    lines = []
+    lines.append(f"── TIME FRAME SUMMARY · {label} ──")
+    lines.append(
+        "  "
+        + "  ".join(
+            [
+                "PROVIDER".ljust(10),
+                "INPUT".rjust(9),
+                "OUTPUT".rjust(9),
+                "CACHE R/W".rjust(17),
+                "TOTAL".rjust(10),
+                "% OF FRAME".rjust(11),
+                "COST USD".rjust(11),
+            ]
+        )
+    )
+    totals = agent_totals(rows)
+    grand = sum(
+        t["input"] + t["output"] + t["cache_read"] + t["cache_write"]
+        for t in totals.values()
+    ) or 1
+    for agent in AGENTS:
+        t = totals.get(agent)
+        if not t:
+            continue
+        total = t["input"] + t["output"] + t["cache_read"] + t["cache_write"]
+        pct = f"{100.0 * total / grand:.1f}%"
+        cost = fmt_cost(t["cost"] if t["cost_known"] else None)
+        lines.append(
+            "  "
+            + "  ".join(
+                [
+                    agent.ljust(10),
+                    fmt_tokens(t["input"]).rjust(9),
+                    fmt_tokens(t["output"]).rjust(9),
+                    f"{fmt_tokens(t['cache_read'])}/{fmt_tokens(t['cache_write'])}".rjust(
+                        17
+                    ),
+                    fmt_tokens(total).rjust(10),
+                    pct.rjust(11),
+                    cost.rjust(11),
+                ]
+            )
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def render_board(rows, frame_label=None):
     totals = agent_totals(rows)
     lines = []
     w = max(28, max((len(r["workspace"]) for r in rows), default=10))
@@ -472,6 +523,8 @@ def render_board(rows):
             )
         )
         lines.append("")
+    if frame_label:
+        lines.append(render_timeframe_summary(rows, frame_label))
     gt = {
         "input": 0,
         "output": 0,
@@ -533,6 +586,14 @@ def main():
         start_dt = None  # unbounded (all data)
     start_ms = int(start_dt.timestamp() * 1000) if start_dt else 0
     end_ms = now_ms
+    if args.today:
+        frame_label = f"today ({local_date(start_ms)})"
+    elif args.days:
+        frame_label = (
+            f"last {args.days} days ({local_date(start_ms)} → {local_date(end_ms)})"
+        )
+    else:
+        frame_label = "all time"
 
     rows = []
     collect_opencode(rows, start_ms, end_ms)
@@ -541,6 +602,11 @@ def main():
     merged = merge_rows(rows)
 
     if args.json:
+        jtotals = agent_totals(merged)
+        _grand = sum(
+            t["input"] + t["output"] + t["cache_read"] + t["cache_write"]
+            for t in jtotals.values()
+        ) or 1
         payload = {
             "generated_at": now.isoformat(timespec="seconds"),
             "range": {
@@ -556,15 +622,26 @@ def main():
                     "cache_write_tokens": t["cache_write"],
                     "cost_usd": t["cost"] if t["cost_known"] else None,
                     "workspaces": len(t["workspaces"]),
+                    "share_pct": round(
+                        100.0
+                        * (
+                            t["input"]
+                            + t["output"]
+                            + t["cache_read"]
+                            + t["cache_write"]
+                        )
+                        / _grand,
+                        1,
+                    ),
                 }
-                for a, t in agent_totals(merged).items()
+                for a, t in jtotals.items()
             },
             "warnings": WARNINGS,
         }
         print(json.dumps(payload, indent=2))
         return 0
 
-    print(render_board(merged))
+    print(render_board(merged, frame_label))
     if WARNINGS:
         print("\nWarnings:")
         for w in WARNINGS:
