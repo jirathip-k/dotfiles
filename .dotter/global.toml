@@ -38,3 +38,4 @@
 [codex.files]
 "codex/profiles/sendmeter.config.toml" = "~/.codex/sendmeter.config.toml"
 "codex/profiles/synergy-costing.config.toml" = "~/.codex/synergy-costing.config.toml"
+"agents/AGENTS.core.md" = "~/.codex/AGENTS.md"
