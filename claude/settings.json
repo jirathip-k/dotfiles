@@ -12,7 +12,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -24,7 +24,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -36,7 +36,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -48,7 +48,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -60,7 +60,7 @@
       {
         "hooks": [
           {
-            "command": "bash '/Users/jirathip/.claude/hooks/herdr-agent-state.sh' session",
+            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
             "timeout": 10,
             "type": "command"
           }
@@ -72,7 +72,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -83,7 +83,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -94,7 +94,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -105,7 +105,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -116,7 +116,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -127,7 +127,7 @@
       {
         "hooks": [
           {
-            "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-hook.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+            "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-hook.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-hook.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-hook.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
             "timeout": 10,
             "type": "command"
           }
@@ -138,7 +138,7 @@
   "model": "opus[1m]",
   "skipDangerousModePermissionPrompt": true,
   "statusLine": {
-    "command": "if [ -f '/Users/jirathip/.orca/agent-hooks/claude-statusline.sh' ] && [ -r '/Users/jirathip/.orca/agent-hooks/claude-statusline.sh' ] && [ -x '/Users/jirathip/.orca/agent-hooks/claude-statusline.sh' ]; then /bin/sh '/Users/jirathip/.orca/agent-hooks/claude-statusline.sh'; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
+    "command": "if [ -f \"$HOME/.orca/agent-hooks/claude-statusline.sh\" ] && [ -r \"$HOME/.orca/agent-hooks/claude-statusline.sh\" ] && [ -x \"$HOME/.orca/agent-hooks/claude-statusline.sh\" ]; then /bin/sh \"$HOME/.orca/agent-hooks/claude-statusline.sh\"; else { command -p cat 2>/dev/null || cat; } >/dev/null 2>&1 || :; fi",
     "type": "command"
   },
   "tui": "fullscreen"
