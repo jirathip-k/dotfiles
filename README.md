@@ -132,11 +132,12 @@ Prereqs (all in this repo except two macOS settings):
 1. **Tailscale** — `cask "tailscale"` in Brewfile; Mac + iPhone on same tailnet.
    Get the Mac's tailnet address: `tailscale ip -4` (or MagicDNS name from
    `tailscale status`).
-2. **Remote Login (SSH)** — macOS system setting, not in this repo:
-   `sudo launchctl enable system/com.openssh.sshd && sudo launchctl bootstrap system /System/Library/LaunchDaemons/ssh.plist`
-   or System Settings → General → Sharing → Remote Login. Requires sudo;
-   cannot be scripted by an agent — `setup-mac.sh` handles it (note:
-   `systemsetup` needs Full Disk Access; the launchctl path avoids that).
+2. **Remote Login (SSH)** — custom `com.jirathip.sshd` LaunchDaemon
+   (`launchd/com.jirathip.sshd.plist`): disables Apple's `com.openssh.sshd`
+   and runs `sshd -D` directly — Apple's `sshd-keygen-wrapper` exits 255 on
+   macOS 26.5, so the stock path breaks. Host keys from the default setup
+   are reused, no keygen needed. Installed by `setup-mac.sh` step 4; the
+   sudo part can't be scripted by an agent (one-time manual approval).
 3. **Mosh server** — `brew "mosh"` in Brewfile.
 4. **herdr server** — LaunchAgent in `launchd/` (see Launch agents section above).
 
