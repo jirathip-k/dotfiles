@@ -56,14 +56,27 @@ Remote Login can't be enabled by an agent).
 
 ## Launch agents
 
-LaunchAgents live in `launchd/` and deploy to `~/Library/LaunchAgents/` via
-dotter. Bootstrap once after a fresh deploy (can't be done by an agent —
-needs a user terminal); `setup-mac.sh` does this for you:
+launchd plists **cannot expand `~` or `$HOME`** — they need absolute paths.
+To keep this repo machine-agnostic (same checkout on any Mac, any username),
+machine-specific plists live in `launchd/` as `*.plist.tmpl` templates with a
+`__HOME__` placeholder. `scripts/install-launch-agents.sh` generates the real
+plists into `~/Library/LaunchAgents/` and (re)loads them:
+
+- `com.jirathip.herdr-server` → `launchd/com.jirathip.herdr-server.plist.tmpl`
+- `com.jirathip.hermes-dashboard` → `launchd/com.jirathip.hermes-dashboard.plist.tmpl`
+- `com.jirathip.caffeinate` — no user paths, plain `.plist` (symlinked via dotter)
+- `com.hermes.agent-state-sync` — generated from the hermes-brain repo's
+  template (delegated to `~/Projects/hermes-brain/scripts/install-agent-state-sync.sh`)
+
+`setup-mac.sh` runs this installer on every bring-up, and also links the
+`herdr-*` console tools into `~/.local/bin` via `scripts/link-herdr-tools.sh`.
+
+Manual reload (needs a user terminal — the gateway blocks launchctl from
+inside itself):
 
 ```sh
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.herdr-server.plist
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.caffeinate.plist
-launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jirathip.hermes-dashboard.plist
+~/Projects/dotfiles/scripts/install-launch-agents.sh        # generate + reload all
+~/Projects/dotfiles/scripts/install-launch-agents.sh --dry-run  # preview only
 ```
 
 | Agent | Purpose |
