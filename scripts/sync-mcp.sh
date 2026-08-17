@@ -51,7 +51,7 @@ if [ -n "$deployed_target" ] && [ "$deployed_target" != "$OPENCODE_GLOBAL" ] && 
   echo "ERROR: running from a checkout that is not the deployed dotfiles repo" >&2
   echo "  (deployed: $deployed_target)" >&2
   echo "  (this repo: $OPENCODE_GLOBAL)" >&2
-  echo "Run from /Users/jirathip/Projects/dotfiles, or use --check." >&2
+  echo "Run from $HOME/Projects/dotfiles, or use --check." >&2
   exit 1
 fi
 
