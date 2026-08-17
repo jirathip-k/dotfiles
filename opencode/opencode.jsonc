@@ -27,17 +27,7 @@
     "lsp": "allow",
     "external_directory": "allow",
     "bash": {
-      "*": "allow",
-      "sudo *": "ask",
-      "rm *": "ask",
-      "git push --force*": "ask",
-      "git push -f*": "ask",
-      "git reset --hard*": "ask",
-      "git clean *": "ask",
-      "dd *": "deny",
-      "mkfs *": "deny",
-      "shutdown *": "ask",
-      "reboot *": "ask"
+      "*": "allow"
     }
   }
 }
