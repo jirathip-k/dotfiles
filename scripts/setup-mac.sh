@@ -55,16 +55,25 @@ fi
 
 # ---------- 3. Launch agents ----------
 say "3/4 Launch agents"
-for label in com.jirathip.herdr-server com.jirathip.caffeinate com.jirathip.hermes-dashboard; do
-  plist="$HOME/Library/LaunchAgents/$label.plist"
-  if agent_loaded "$label"; then
-    ok "$label already running"
-  elif [ -f "$plist" ]; then
-    launchctl bootstrap "gui/$(id -u)" "$plist" && ok "$label bootstrapped"
+
+# Generate + load all machine-specific launchd plists (herdr-server,
+# hermes-dashboard, caffeinate, hermes agent-state-sync) from __HOME__ templates.
+# launchd can't expand ~, so these MUST be generated against $HOME at install
+# time. Re-runs are idempotent. --check must be read-only: dry-run only.
+if [ "$MODE" = "check" ]; then
+  if [ -x "$REPO_ROOT/scripts/install-launch-agents.sh" ]; then
+    "$REPO_ROOT/scripts/install-launch-agents.sh" --dry-run >/dev/null \
+      && ok "launch agents: template render OK" || fail "launch agents: template render FAILED"
   else
-    warn "$label: plist not found at $plist (deploy dotfiles first)"
+    fail "install-launch-agents.sh not found (deploy dotfiles first)"
   fi
-done
+  [ -x "$REPO_ROOT/scripts/link-herdr-tools.sh" ] \
+    && "$REPO_ROOT/scripts/link-herdr-tools.sh" --dry-run >/dev/null \
+    && ok "herdr tools: symlink targets resolve" || fail "herdr tools: missing or unresolvable"
+else
+  "$REPO_ROOT/scripts/install-launch-agents.sh"
+  "$REPO_ROOT/scripts/link-herdr-tools.sh"
+fi
 
 # ---------- 4. Remote Login (SSH) ----------
 say "4/4 Remote Login (SSH)"

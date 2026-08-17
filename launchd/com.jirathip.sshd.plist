@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jirathip.sshd</string>
+
+    <!-- Bypass Apple's sshd-keygen-wrapper: it exits 255 on macOS 26.5.2
+         (silent, stderr -> /dev/null) while raw sshd works fine.
+         Host keys already exist, so the wrapper's keygen job is unnecessary.
+         Runs sshd in foreground (-D) so launchd owns and restarts it. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/sbin/sshd</string>
+        <string>-D</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- Never /dev/null: if sshd dies we finally get the error. -->
+    <key>StandardErrorPath</key>
+    <string>/var/log/sshd.jirathip.err</string>
+    <key>StandardOutPath</key>
+    <string>/var/log/sshd.jirathip.out</string>
+
+    <key>ProcessType</key>
+    <string>Interactive</string>
+</dict>
+</plist>
