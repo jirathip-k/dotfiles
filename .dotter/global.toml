@@ -30,6 +30,7 @@
 
 [launchd.files]
 "launchd/com.jirathip.caffeinate.plist" = "~/Library/LaunchAgents/com.jirathip.caffeinate.plist"
+"launchd/com.jirathip.colima.plist" = "~/Library/LaunchAgents/com.jirathip.colima.plist"
 
 [codex.files]
 "codex/profiles/sendmeter.config.toml" = "~/.codex/sendmeter.config.toml"
