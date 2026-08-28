@@ -27,6 +27,7 @@ DRY_RUN=0
 TMPLS="
 com.jirathip.herdr-server=$DOTFILES_ROOT/launchd/com.jirathip.herdr-server.plist.tmpl
 com.jirathip.hermes-dashboard=$DOTFILES_ROOT/launchd/com.jirathip.hermes-dashboard.plist.tmpl
+com.jirathip.ttyd=$DOTFILES_ROOT/launchd/com.jirathip.ttyd.plist.tmpl
 "
 
 mkdir -p "$LADIR" "$HOME/.config/herdr" "$HOME/.hermes/logs"
