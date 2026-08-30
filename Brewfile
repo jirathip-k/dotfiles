@@ -42,7 +42,8 @@ brew "poppler"
 brew "dotter"        # dotfiles manager for this repo
 
 # --- GUI apps & fonts -------------------------------------------------------
-cask "tailscale"     # mesh VPN — remote access to this Mac from phone/other devices
+cask "tailscale"     # GUI fallback (logged out; CLI variant below is primary)
+brew  "tailscale"    # CLI variant: tailscaled root service, boots before login
 cask "ghostty"
 cask "cmux"          # Ghostty-based terminal with agent workspaces; reads ghostty/config
 cask "font-hack-nerd-font"

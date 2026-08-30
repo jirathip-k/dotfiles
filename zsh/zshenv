@@ -14,3 +14,10 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # Hermes Agent CLI (managed venv). Appended, not prepended: the venv's generic
 # python/pip must not shadow user binaries in ~/.local/bin or Homebrew.
 export PATH="$PATH:$HOME/.hermes/hermes-agent/venv/bin"
+
+# Local secrets (API keys) — file is 0600 and NOT git-tracked. Sourced here in
+# ~/.zshenv (NOT .zshrc) because ~/.zshenv is read by EVERY zsh shell — login,
+# interactive, AND non-login pane shells (e.g. codex/hdr agents spawned into a
+# herdr/tmux pane). .zshrc is skipped by non-login shells, which is why BYOK
+# codex models (deepseek/openrouter) were silently missing their keys.
+[[ -f "$ZDOTDIR/secrets.zsh" ]] && source "$ZDOTDIR/secrets.zsh"

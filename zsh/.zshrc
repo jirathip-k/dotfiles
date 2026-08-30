@@ -31,7 +31,12 @@ antidote_home="$(brew --prefix antidote 2>/dev/null)/share/antidote"
 if [[ -e "$antidote_home/antidote.zsh" ]]; then
   source "$antidote_home/antidote.zsh"
   zsh_plugins="$ZDOTDIR/.zsh_plugins"
-  # Rebuild the static bundle whenever the plugin list changes.
+  # Self-heal: if the plugin cache was wiped (e.g. macOS pruning ~/Library/Caches),
+  # drop the stale generated bundle so it rebuilds below instead of sourcing dead paths.
+  if [[ -f "${zsh_plugins}.zsh" && ! -d "$HOME/Library/Caches/antidote/github.com" ]]; then
+    rm -f "${zsh_plugins}.zsh"
+  fi
+  # Rebuild the static bundle whenever the plugin list changes (or the cache was wiped).
   if [[ ! "${zsh_plugins}.zsh" -nt "${zsh_plugins}.txt" ]]; then
     antidote bundle < "${zsh_plugins}.txt" > "${zsh_plugins}.zsh"
   fi
@@ -76,6 +81,11 @@ bindkey -M viins '^W' backward-kill-word
 # Aliases
 # ---------------------------------------------------------------------------
 [[ -f "$ZDOTDIR/aliases.zsh" ]] && source "$ZDOTDIR/aliases.zsh"
+
+# ---------------------------------------------------------------------------
+# Local secrets (API keys) — file is 0600 and NOT in git.
+# ---------------------------------------------------------------------------
+[[ -f "$ZDOTDIR/secrets.zsh" ]] && source "$ZDOTDIR/secrets.zsh"
 
 # ---------------------------------------------------------------------------
 # Tools

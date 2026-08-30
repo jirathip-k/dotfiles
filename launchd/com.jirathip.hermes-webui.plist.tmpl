@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.jirathip.hermes-webui</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__HOME__/.hermes/hermes-agent/venv/bin/python</string>
+		<string>__HOME__/Projects/hermes-webui/bootstrap.py</string>
+		<string>--no-browser</string>
+		<string>--foreground</string>
+		<string>--host</string>
+		<string>127.0.0.1</string>
+		<string>8787</string>
+	</array>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>__HOME__/.hermes/logs/webui-launchd.log</string>
+	<key>StandardErrorPath</key>
+	<string>__HOME__/.hermes/logs/webui-launchd.log</string>
+</dict>
+</plist>

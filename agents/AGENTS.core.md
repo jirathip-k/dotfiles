@@ -41,6 +41,20 @@ inherit the same blind spot.
   delta since the last run. `fleet -v` for per-terminal detail, `-r <repo>` for
   another repo.
 
+## iOS Simulator tasks
+
+- In Herdr fleet panes, simulator-backed `xcodebuild` test actions are routed
+  automatically through the Herdr-only `xcodebuild` shim and `hermes-sim-task`.
+  The wrapper creates a private simulator, exports `SIMULATOR_UDID`/`DESTINATION_ID`,
+  forwards task signals, and removes only the simulator it owns.
+- For explicit scripts, call `hermes-sim-task` directly. Set
+  `HERDR_XCODEBUILD_DIRECT=1` only for a deliberate physical-device or generic
+  destination build.
+- Preferred form:
+  `hermes-sim-task --shell 'xcodebuild test -destination "id=$SIMULATOR_UDID"'`
+- Do not replace or rename the real Xcode binary, and never run `xcrun simctl
+  delete all` as task cleanup. Manual shells bypass the Herdr-only shim.
+
 ## Cost
 
 - DeepSeek V4 Flash bills 2x during 08:00-11:00 and 13:00-17:00 Bangkok time.
