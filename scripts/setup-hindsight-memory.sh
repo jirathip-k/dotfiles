@@ -4,7 +4,7 @@
 #
 # PORTABLE: uses $HOME / $HERMES_HOME only — no absolute user paths. Runs on
 # any machine where Hermes lives at $HOME/.hermes/hermes-agent (macOS target).
-# Idempotent: safe to re-run. Reuses each profile's DEEPSEEK_API_KEY as the
+# Idempotent: safe to re-run. Reuses each profile's ZAI_API_KEY as the
 # OpenAI-wire LLM key; sets memory.provider=hindsight in that profile's config.yaml.
 #
 # Usage:
@@ -21,9 +21,9 @@ VENV="$HERMES_ROOT/hermes-agent/venv"
 PYTHON="${PYTHON:-$VENV/bin/python}"
 HERMES_BIN="$VENV/bin/hermes"
 
-LLM_BASE_URL="${LLM_BASE_URL:-https://api.deepseek.com/v1}"
-LLM_MODEL="${LLM_MODEL:-deepseek-chat}"
-LLM_KEY_ENV="${LLM_KEY_ENV:-DEEPSEEK_API_KEY}"
+LLM_BASE_URL="${LLM_BASE_URL:-https://api.z.ai/api/coding/paas/v4}"
+LLM_MODEL="${LLM_MODEL:-glm-5.3-flash}"
+LLM_KEY_ENV="${LLM_KEY_ENV:-ZAI_API_KEY}"
 TIMEOUT=120
 IDLE_TIMEOUT=300
 BANK_PREFIX="${BANK_PREFIX:-hermes}"
