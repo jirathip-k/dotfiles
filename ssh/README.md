@@ -20,10 +20,10 @@ login shells.
    ForceCommand /Users/jirathip/.local/bin/ssh-login-shell.sh
    ```
 
-2. Reload sshd (it relaunches on demand):
+2. Reload sshd — the listener is long-lived and won't re-read the config:
 
    ```
-   sudo launchctl stop com.openssh.sshd
+   sudo launchctl kickstart -k system/com.openssh.sshd
    ```
 
 ## Verify
