@@ -46,6 +46,7 @@ cask "tailscale"     # GUI fallback (logged out; CLI variant below is primary)
 brew  "tailscale"    # CLI variant: tailscaled root service, boots before login
 cask "ghostty"
 cask "cmux"          # Ghostty-based terminal with agent workspaces; reads ghostty/config
+cask "rootshell"     # needs: brew tap kitknox/rootshell first (third-party tap, brew trust)
 cask "font-hack-nerd-font"
 cask "visual-studio-code"
 cask "godot"
