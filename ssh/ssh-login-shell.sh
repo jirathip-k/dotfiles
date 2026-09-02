@@ -10,8 +10,8 @@
 # string for zsh -c. -l login shell so .zprofile PATH applies; +Z only in
 # command mode (zle stalls non-TTY pipes).
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-if [[ $# -gt 0 ]]; then
-  exec /bin/zsh -l +Z -c "$*"
+if [[ -n "${SSH_ORIGINAL_COMMAND:-}" ]]; then
+  exec /bin/zsh -l +Z -c "$SSH_ORIGINAL_COMMAND"
 else
   exec /bin/zsh -l -i
 fi
