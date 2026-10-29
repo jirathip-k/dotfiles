@@ -21,3 +21,7 @@ export PATH="$PATH:$HOME/.hermes/hermes-agent/venv/bin"
 # herdr/tmux pane). .zshrc is skipped by non-login shells, which is why BYOK
 # codex models (deepseek/openrouter) were silently missing their keys.
 [[ -f "$ZDOTDIR/secrets.zsh" ]] && source "$ZDOTDIR/secrets.zsh"
+
+# Synergy: one Nx cache shared by every lane worktree (owner 2026-10-29).
+# CI is unaffected (no zshenv there; nx.json keeps .nx/cache).
+export NX_CACHE_DIRECTORY="$HOME/.cache/nx/synergy-apps"
