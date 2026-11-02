@@ -21,6 +21,5 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export DOCKER_BUILDKIT=1
 
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+# Container runtime: colima (owner decision 2026-11-02: colima, NOT OrbStack).
+# The VM itself starts from ~/Library/LaunchAgents/com.jirathip.colima.plist.
