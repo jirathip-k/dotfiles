@@ -28,7 +28,7 @@ resolve_tailscale() {
 }
 
 TS="$(resolve_tailscale)" || {
-  echo "Tailscale CLI not found — install with: brew install --cask tailscale" >&2
+  echo "Tailscale CLI not found — install with: brew install tailscale (CLI variant, never the GUI cask)" >&2
   exit 1
 }
 

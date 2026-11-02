@@ -129,7 +129,9 @@ Full interactive herdr TUI from the phone, anywhere.
 
 Prereqs (all in this repo except two macOS settings):
 
-1. **Tailscale** — `cask "tailscale"` in Brewfile; Mac + iPhone on same tailnet.
+1. **Tailscale** — `brew "tailscale"` (CLI `tailscaled` variant) in Brewfile; Mac + iPhone on
+   the same tailnet. Never the GUI cask/app: it conflicts with the CLI and the App Store
+   variant cannot run `tailscale serve`, which the herdsman board depends on.
    Get the Mac's tailnet address: `tailscale ip -4` (or MagicDNS name from
    `tailscale status`).
 2. **Remote Login (SSH)** — custom `com.jirathip.sshd` LaunchDaemon

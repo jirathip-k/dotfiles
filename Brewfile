@@ -42,8 +42,11 @@ brew "poppler"
 brew "dotter"        # dotfiles manager for this repo
 
 # --- GUI apps & fonts -------------------------------------------------------
-cask "tailscale"     # GUI fallback (logged out; CLI variant below is primary)
-brew  "tailscale"    # CLI variant: tailscaled root service, boots before login
+# Tailscale: the CLI `tailscaled` variant ONLY (owner 2026-11-02). Do NOT add the
+# GUI cask/app: it fights the CLI for the tunnel and for /usr/local/bin/tailscale,
+# and the App Store variant does not support `tailscale serve` — which the phone
+# board depends on. See tailscale.com/docs/concepts/macos-variants
+brew  "tailscale"    # CLI variant: tailscaled root service, boots before login, no GUI
 cask "ghostty"
 cask "cmux"          # Ghostty-based terminal with agent workspaces; reads ghostty/config
 cask "rootshell"     # needs: brew tap kitknox/rootshell first (third-party tap, brew trust)
